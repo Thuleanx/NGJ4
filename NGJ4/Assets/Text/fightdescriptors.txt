@@ -1,13 +1,13 @@
 //fight descriptor town
-+fgtdesctwn
++fdt
 
 In the #eldritchadj town, the #traits #jobs named #charactername #fightverb the #enemyz Zealot's #bodypart . The pain was so great, the Zealot died instantly.
 
 //fight descriptor woods
 +fdw
 
-While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #charactername pounced on the Scavenger while #pronoun had the drop on him. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
-While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #charactername pounced on the Scavenger while #pronoun had the drop on her. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on him. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on her. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
 
 //fight descriptor ruins
 +fdr
@@ -28,3 +28,5 @@ The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #
 //fight descriptor extraction
 
 +fde
+
+Under the warbling engines of the extraction ship, #charactername spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #charactername #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
