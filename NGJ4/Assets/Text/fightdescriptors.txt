@@ -1,3 +1,32 @@
-+fightdescriptor
+//fight descriptor town
++fdt
 
 In the #eldritchadj town, the #traits #jobs named #charactername #fightverb the #enemyz Zealot's #bodypart . The pain was so great, the Zealot died instantly.
+
+//fight descriptor woods
++fdw
+
+While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on him. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on her. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+
+//fight descriptor ruins
++fdr
+
+Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #charactername having #fightverb his #bodypart . The Zealot lay in a broken mess, unable to call for help.
+Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing her arms about in an incantation, was cut short by #charactername having #fightverb her #bodypart . The Zealot lay in a broken mess, unable to call for help.
+
+Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at her lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, he hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at his lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+
+#charactername put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #charactername saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out to #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
+
+//fight descriptor meteor
++fdm
+
+The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted. It chortled as it sank to a pile of ash.
+
+//fight descriptor extraction
+
++fde
+
+Under the warbling engines of the extraction ship, #charactername spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #charactername #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
