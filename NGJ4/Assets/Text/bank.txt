@@ -3,20 +3,17 @@
 +spronoun
 he
 she
-it
 they
 
 +opronoun
 him
 her
-it
 them
 
 +ppronoun
 his
 her
 their
-its
 
 +charactername
 Olivier Goulding
