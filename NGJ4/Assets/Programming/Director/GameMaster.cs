@@ -32,7 +32,7 @@ public class GameMaster : MonoBehaviour {
 	public void SpawnTestUnitAt(Vector2Int position) {
 		Unit unit = new Unit(position);
 		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
-		unit.range = 4;
+		unit.range = 3;
 		unit.Attach(pawnObj);
 		grid.AddOccupant(unit.position, unit);
 	}
@@ -56,8 +56,6 @@ public class GameMaster : MonoBehaviour {
 	IEnumerator _PlayerTurn() {
 		mode = MODE.PLAYER_TURN;
 
-		Debug.Log("START PLAYER TURN");
-
 		bool selected = false;
 		Unit selected_unit = null;
 		bool selected_move = false;
@@ -78,8 +76,6 @@ public class GameMaster : MonoBehaviour {
 				selected_unit = unit;
 				selected = true;
 
-				Debug.Log(unit.GetReachablePositions(grid).Count);
-
 				foreach (Vector2Int nxt in selected_unit.GetReachablePositions(grid)) {
 					GameObject indicator = moveIndicator.Borrow(grid.GetPosCenter(nxt), Quaternion.identity);
 					indicators.Add(indicator);
@@ -92,8 +88,6 @@ public class GameMaster : MonoBehaviour {
 		}
 
 		while (!selected) yield return null;
-
-		Debug.Log("UNIT SELECTED");
 
 		// do something
 

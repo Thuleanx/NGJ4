@@ -10,7 +10,7 @@ public class Occupant {
 
 	public virtual void Move(Grid grid, Vector2Int target) {
 		position = target;
-		gameObject.transform.position = grid.GetPosCenter(target);
+		if (gameObject != null) gameObject.transform.position = grid.GetPosCenter(target);
 	}
 
 	public void Attach(GameObject gameObject) => this.gameObject = gameObject;
