@@ -1,0 +1,610 @@
+//List of Character Names
+
+#CharacterName
+Olivier Goulding
+Esa Duncan
+Paolo Brett
+Glenn Mansell
+Jakub Walton
+Hassan Pritchard
+Taslima Lyon
+Ritchie Horton
+Jordi Esparza
+Kalem Mckee
+Craig Hayward
+Dahlia Lowe
+Rafe Bell
+Mimi Nicholls
+Eryk Rosario
+Davey Kelley
+Giovanni Robins
+Yehuda Finney
+Kairon Emery
+Harvir Brock
+Yuvaan Berry
+Cali Holder
+Macy Noble
+Poppie Fitzpatrick
+Samira Philip
+Matteo Callahan
+Luis Beaumont
+Kayden Peralta
+Shaunna Stevens
+Rubie Bates
+Jonny Burks
+Keelan Lancaster
+Ophelia Conroy
+Kalum Proctor
+Dalia Puckett
+Sakina Millington
+Bea Reader
+Kailum Hodgson
+Abul Arellano
+Hazel Donnelly
+Nannie Turner
+Halima Chester
+Lester Willis
+Sacha Sanderson
+Jeffery Conley
+Zaine Valenzuela
+Kie Daniels
+Rudy Marin
+Raihan Peterson
+Monet Wooten
+Tayla Pugh
+Lillie-Rose Curry
+Dion Johnson
+Fenella Harrell
+Adaline Jenkins
+Eoin Wall
+Marisa Welch
+Phillipa Munoz
+Henna O'Ryan
+Ayman Ellwood
+Jayda Pratt
+Georgina Garner
+Peter Brennan
+Ammara Rosas
+Faris Downes
+Zack Kirkland
+Luisa Colon
+Kiah Coffey
+Manpreet Tyson
+Ayla Nava
+Harvie French
+Yassin Pearce
+Korben Duarte
+Hailie Maxwell
+Kyra Salter
+Patience Melton
+Lilly-Rose Vazquez
+Lilliana Melia
+Dillan Lindsey
+Mikail Bloom
+Janet Tanner
+Zubair Walker
+Dewey Bowman
+Bernadette O'Sullivan
+Alex Mcnamara
+Dixie Crosby
+Adelina Grant
+Maxim Cox
+Nathaniel Rowland
+Harmony Dolan
+Kaydan Lara
+Umayr Lutz
+Aayan Wright
+Taryn Phillips
+Aaron Lu
+Darnell Weiss
+Stevie Mathis
+James Kaufman
+Tommie Huber
+Tania Hope
+
+//First section is collection of combat descriptors.
+
+#FightVerb
+cleaved
+split
+severed
+rend
+sundered
+ruptured
+broke
+chopped
+cracked
+cut
+sliced
+destroyed
+hacked
+slit
+tore
+masticated
+axed
+shot
+punched
+struck
+knocked
+kicked
+crunched
+beat
+smacked
+clubbed
+slugged
+burned
+pounded
+bashed
+masticated
+mutilated
+bludgeoned
+whipped
+batted
+rammed
+thrashed
+charged
+mauled
+rapped
+buckled
+contused
+
+//Now we refer to body parts for the fightverbs to affect
+
+#BodyPart 
+skull
+arm
+leg
+hip
+thigh
+shin
+foot
+shoulder
+face
+ear
+fingers
+chest
+pelvis
+knee
+ankle
+elbow
+ribcage
+sternum
+crown
+neck
+collarbone
+eye
+toes
+calf
+jaw
+brow
+forearm
+nose
+teeth
+chin
+cheek
+wrist
+nostril
+thumb
+knuckle
+tongue
+belly
+mouth
+
+
+//Now we build a collection of potential careers for the game to apply to the player pawns to give them a little back story
+
+#Jobs
+Speech-Language Pathologist
+Fitness Trainer
+Occupational Therapist
+Surveyor
+Reporter
+Database administrator
+Teacher Assistant
+Patrol Officer
+College Professor
+Compliance Officer
+Auto Mechanic
+Event Planner
+Civil Engineer
+Childcare worker
+Financial Advisor
+Public Relations Specialist
+Web Developer
+Bus Driver
+Artist
+Art Director
+Systems Analyst
+Maintenance & Repair Worker
+Educator
+Elementary School Teacher
+High School Teacher
+Paramedic
+Substance Abuse Counselor
+Real Estate Agent
+Plumber
+Radiologic Technologist
+Landscape Architect
+Computer Systems Administrator
+IT Manager
+Dentist
+School Counselor
+Insurance Agent
+Painter
+Judge
+Physical Therapist
+Middle School Teacher
+Coach
+Pharmacist
+Drafter
+Marriage & Family Therapist
+Writer
+Firefighter
+Janitor
+Computer Systems Analyst
+Mechanical Engineer
+Epidemiologist
+Cost Estimator
+Economist
+Referee
+Computer Support Specialist
+Anthropologist
+Logistician
+Physician
+Clinical Laboratory Technician
+Preschool Teacher
+Lawyer
+Carpenter
+Psychologist
+Receptionist
+Medical Secretary
+Accountant
+Computer Programmer
+Market Research Analyst
+Recreational Therapist
+Librarian
+Designer
+Historian
+Musician
+Editor
+Desktop publisher
+Social Worker
+Computer Hardware Engineer
+Loan Officer
+Chemist
+Budget analyst
+Electrician
+Customer Service Representative
+Telemarketer
+Actor
+Actuary
+Veterinarian
+Farmer
+Bookkeeping clerk
+Architect
+Massage Therapist
+School Psychologist
+Personal Care Aide
+Electrical Engineer
+Court Reporter
+Respiratory Therapist
+Statistician
+Software Developer
+Microbiologist
+Mathematician
+Human Resources Assistant
+Physicist
+Marketing Manager
+Photographer
+Mason
+Dental Hygienist
+Landscaper & Groundskeeper
+Sports Coach
+Professional athlete
+Police Officer
+Interpreter & Translator
+Construction Manager
+Medical Assistant
+Zoologist
+Housekeeper
+Dancer
+Fitness Worker
+Chef
+Diagnostic Medical Sonographer
+HR Specialist
+Paralegal
+Security Guard
+Environmental scientist
+Executive Assistant
+Automotive mechanic
+Urban Planner
+Registered Nurse
+Cashier
+Truck Driver
+Hairdresser
+Secretary
+Food Scientist
+
+//Now we have a list of character traits which will always go before the job descriptor
+
+#Traits
+Gentle
+Clever
+Intelligent
+Orderly
+Smart
+Relaxed
+Energetic
+Self-Critical
+Compassionate
+Playful
+Dubious
+Disorderly
+Slimeball
+Spoiled
+Meddlesome
+Attention Seeker
+Conceited
+Deranged
+Spiteful
+Arrogant
+Creative
+Faithful
+Insightful
+Decisive
+Sensitive
+Careful
+Athletic
+Gracious
+Warm
+Skinny
+Ugly
+Lame
+Angry
+Enraged
+Pissy
+Punchy
+Punch-drunk
+Apprentice
+Freaky
+Kind
+Wistful
+Passionate
+Disorganized
+Immature
+Fat
+Overly Picky
+Crude
+Stupid
+Shortsighted
+Moody
+Ungrateful
+Messy
+Control Freak
+Orderly
+Resourceful
+Smart
+Reflective
+Hardworking
+Disciplined
+Benevolent
+Social
+Generous
+Gallant
+Crude
+Immodest
+Sore Winner
+Weak-Willed
+Spiteful
+Cheap
+Pompous
+Messy
+Moody
+Weak
+Misguided
+Phobic
+Dutiful
+Forthright
+Generous
+Compassionate
+Focused
+Genuine
+Self-Reliant
+Independent
+Dependable
+Gullible
+Reclusive
+Primadonna
+Schemer
+beautiful
+broken
+emotional
+parched
+tacit
+teeny-tiny
+sable
+smooth
+tense
+secretive
+elfin
+alluring
+violet
+far-flung
+wicked
+jittery
+fuzzy
+bearded
+modern
+greedy
+amazing
+bawdy
+bustling
+spooky
+elite
+loving
+spotty
+well-groomed
+knotty
+useless
+untidy
+noxious
+long
+icky
+succinct
+earthy
+questionable
+hapless
+kind
+quick
+soggy
+new
+poor
+changeable
+noisy
+cowardly
+laughable
+disillusioned
+green
+heavenly
+poor
+tricky
+earthy
+agreeable
+disagreeable
+attractive
+boring
+spurious
+ceaseless
+separate
+statuesque
+cultured
+asleep
+psychological
+cautious
+tearful
+concerned
+material
+juvenile
+coherent
+innate
+devilish
+wandering
+versed
+gusty
+abashed
+unhappy
+finicky
+parched
+watery
+consistent
+pregnant
+defective
+accidental
+picayune
+solid
+unused
+silly
+observant
+well-to-do
+wide-eyed
+venomous
+detailed
+dashing
+odd
+
+//Now on to the potential enemies, these will be broken out into smaller sections, one for each enemy type.
+
+#EnemyZealot
+Comet Robed
+Incessantly Shrieking
+Howling
+Rage Fueled
+Sniveling
+Gorgeous
+Preachy
+Jar-headed
+odd
+Pale
+Gaunt
+incandescent
+Sunken-Eyed
+Fretful
+Simpering
+Insane
+Vicious
+waifish
+Hunchbacked
+Ceaseless
+Statuesque
+Ghostly
+Young
+Pregnant
+lightning fast
+Crazed
+Deranged
+robe adorned in meteor
+
+
+#EnemyScavenger
+Snarling
+Angry
+Vicious
+Lame
+Prodigal
+Frightful
+bearded
+Stinky
+Tall
+Short
+Fat
+Skinny
+Wide
+Thin
+Hunchbacked
+Sexy
+Scared
+Frightened
+Bulky
+Shredded
+broken
+noisy
+Broad Shouldered
+odd
+Pregnant
+Tattooed
+Deranged
+Crazed
+Professional
+Beautiful
+Childlike
+Small
+Quick
+
+
+#EnemyCorrupted
+incandescent
+growling
+snarling
+hissing
+freaky
+black and blue
+obsidian skinned
+mouldering
+wispy
+quick footed
+vicious
+hulking
+radiating
+yelping
+barking
+howling
+clawed
+deformed
+gimped
+trudging
+mindless
+taken
+boyish
+girly
+waifish
+
