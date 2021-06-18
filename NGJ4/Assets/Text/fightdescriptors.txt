@@ -11,23 +11,28 @@ While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scaven
 
 //fight descriptor ruins
 +fdr
-
+//1m
 Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #charactername having #fightverb his #bodypart . The Zealot lay in a broken mess, unable to call for help.
+//1f
 Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing her arms about in an incantation, was cut short by #charactername having #fightverb her #bodypart . The Zealot lay in a broken mess, unable to call for help.
-
-Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at her lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+//2m
 Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, he hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at his lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
-
-#charactername put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #charactername saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out to #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
+//2f
+Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at her lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+//3
+#charactername put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #charactername saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out and #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
+//4
+Stepping into a #eldritchadj and rubbled home, #charactername saw an enemy #enemys Scavenger digging through a tattered pile of clothes. #charactername crept up on the Scavenger, then, in a bout of insane violence, #spronoun #fightverb their #bodypart , leaving them an #eldritchadj mess. Forgotten and to be reclaimed.
 
 //fight descriptor meteor
 +fdm
 
-The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted. It chortled as it sank to a pile of ash.
+The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash.
 
 //fight descriptor extraction
 
 +fde
-
+//1
 At a short distance, the pilot of an #eldritchadj airship beckoned the party frantically from his lofty cockpit seat. The party set off at a run, but #charactername was pounced on by a #enemyc horror. It was a sapling with a boar's head, gnashing jaws dripping curdled dross on #opronoun . #spronoun raised a knee, flipping the #eldritchadj monstrosity off #opronoun , then #fightverb the thing's #bodypart . It squealed, but thankfully came to rest. #charactername sprinted after #opronoun new family, finally home for a better life.
+//2
 Under the warbling engines of the extraction ship, #charactername spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #charactername #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
