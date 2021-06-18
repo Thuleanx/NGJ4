@@ -32,8 +32,13 @@ string parse(string cmd);
 
 void dfs(stringstream &ss, RULE cur) {
 	// choose one sentence in the rule
-	string sent = cur.sens[uniform_int_distribution<int>(0, cur.sens.size())(rng)];
+	string sent = cur.sens[uniform_int_distribution<int>(0, cur.sens.size()-1)(rng)];
+
 	/* cout << "GOING WITH: " << cur.rep << " === " << sent << endl; */
+	/* if (cur.sens.size() < 10) { */
+	/* 	for (string s : cur.sens) */
+	/* 		cout << s << " " << s.length() << endl; */
+	/* } */
 	ss << parse(sent);
 }
 
@@ -44,9 +49,6 @@ void go_with(stringstream &ss, string rule) {
 	}
 	dfs(ss, rules[rule]);
 }
-
-
-
 
 string parse(string cmd) {
 	stringstream ss;
@@ -76,13 +78,18 @@ string parse(string cmd) {
 	return ss.str();
 }
 
+bool is_substance(string s) {
+	for (char c : s) if (c != ' ') return 1;
+	return 0;
+}
+
 void parse_file(std::ifstream &file) {
 	// parse
 	RULE current;
 	bool found = 0;
 	string line;
 	while (getline(file, line)) {
-		if (line.rfind("//", 0) == 0)
+		if (line.rfind("//", 0) == 0 || !is_substance(line))
 			continue;
 
 		if (line[0] == '+') {
@@ -98,8 +105,11 @@ void parse_file(std::ifstream &file) {
 			current.rep = rep;
 
 			found = 1;
-		} else
+		} else {
+			/* if (current.rep == "story") */
+			/* 	cout << line << endl; */
 			current.sens.push_back(line);
+		}
 	}
 	if (found) {
 		rules[current.rep] = current;
@@ -112,6 +122,7 @@ inline bool ends_with(std::string const & value, std::string const & ending)
     if (ending.size() > value.size()) return false;
     return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
 }
+
 
 /* void list_dir(path dir_path) { */
 /* 	if (exists(dir_path)) { */
@@ -183,6 +194,7 @@ int main() {
 			cout << parse(cmd) << endl;
 		} catch (const char* msg) {
 			cout << "BAD" << endl;
+			cout << msg << endl;
 		}
 	}
 
