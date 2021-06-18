@@ -6,6 +6,18 @@ she
 it
 they
 
++opronoun
+him
+her
+it
+them
+
++ppronoun
+his
+her
+their
+its
+
 +charactername
 Olivier Goulding
 Esa Duncan
@@ -240,7 +252,6 @@ axed
 shot
 punched
 struck
-knocked
 kicked
 crunched
 beat
@@ -259,7 +270,6 @@ rammed
 thrashed
 charged
 mauled
-rapped
 buckled
 
 
@@ -298,9 +308,7 @@ teeth
 chin
 cheek
 wrist
-nostril
 thumb
-knuckle
 tongue
 belly
 mouth
