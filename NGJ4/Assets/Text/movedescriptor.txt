@@ -1,0 +1,7 @@
+//this will be the repo for all movedescriptors
+
++movedescriptor
+
+Test #charactername #fightverb test test #enemyz #eldritchadj
+
+Test2 #fightverb test test #eldritchadj #charactername
