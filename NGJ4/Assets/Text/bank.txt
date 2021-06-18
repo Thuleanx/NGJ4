@@ -1,6 +1,6 @@
 //List of Character Names
 
-+pronoun
++spronoun
 he
 she
 it
