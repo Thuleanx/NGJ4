@@ -252,9 +252,7 @@ struck
 kicked
 crunched
 beat
-smacked
 clubbed
-slugged
 burned
 pounded
 bashed
@@ -277,13 +275,10 @@ skull
 arm
 leg
 hip
-thigh
 shin
-foot
 shoulder
 face
 ear
-fingers
 chest
 pelvis
 knee
@@ -295,7 +290,6 @@ crown
 neck
 collarbone
 eye
-toes
 calf
 jaw
 brow
@@ -309,6 +303,46 @@ thumb
 tongue
 belly
 mouth
+
+//list of weapons for some added variety
++wpn
+Battle axe
+Bec de corbin
+Bludgeon
+Club
+Flail
+Flanged mace
+Horseman's pick
+Mace
+Morning star
+Quarterstaff
+Shestopyor
+Warhammer
+Arming sword
+Dagger
+Estoc
+Falchion
+Katana
+Knife
+Longsword
+Rapier
+shortsword
+Bill
+Glaive
+Goedendag
+Guisarme
+Halberd
+Lance
+Lochaber axe
+Lucerne hammer
+Man catcher
+Military fork
+Partisan
+Pike
+bat
+log
+elbow
+knee
 
 
 //Now we build a collection of potential careers for the game to apply to the player pawns to give them a little back story
@@ -335,7 +369,7 @@ Bus Driver
 Artist
 Art Director
 Systems Analyst
-Maintenance & Repair Worker
+Maintenance Worker
 Educator
 Elementary School Teacher
 High School Teacher
@@ -418,11 +452,11 @@ Marketing Manager
 Photographer
 Mason
 Dental Hygienist
-Landscaper & Groundskeeper
+Groundskeeper
 Sports Coach
 Professional athlete
 Police Officer
-Interpreter & Translator
+Translator
 Construction Manager
 Medical Assistant
 Zoologist
