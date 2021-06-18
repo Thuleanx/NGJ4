@@ -1,6 +1,6 @@
 //List of Character Names
 
-#CharacterName
++charactername
 Olivier Goulding
 Esa Duncan
 Paolo Brett
@@ -77,6 +77,16 @@ Korben Duarte
 Hailie Maxwell
 Kyra Salter
 Patience Melton
+Pam Wilkerson
+Dorothy Barton
+Kristy Wallace
+Lillie Perkins
+Bridget Rogers
+Crystal Campbell
+Suzanne Copeland
+Dwayne Holt
+Jimmy Burke
+Erin Stewart
 Lilly-Rose Vazquez
 Lilliana Melia
 Dillan Lindsey
@@ -101,10 +111,110 @@ Stevie Mathis
 James Kaufman
 Tommie Huber
 Tania Hope
+Agnes Mcdonald
+Grant Hunt
+Geraldine Santos
+Eva Walsh
+Arturo Sparks
+Randolph Cunningham
+William Ford
+Terrance Riley
+Dwight Rodriguez
+Beatrice Montgomery
+Jordan Elliott
+Stephanie Davis
+Rafael Castro
+Lorena Harmon
+Maureen Abbott
+Lila Greer
+Ralph Ballard
+Brendan Glover
+Shari Martinez
+Salvador Jensen
+Lora Strickland
+Eula Cross
+Wesley Tyler
+Jared Becker
+Felix Cruz
+Hugo Ferguson
+Damon Maxwell
+Adrian Tran
+Dawn May
+Garry Holmes
+Ana Morales
+Harvey Parsons
+Julie Moran
+Vicky Saunders
+Amanda Oliver
+Christie Buchanan
+Erika Vaughn
+Misty Maldonado
+Steven Townsend
+Arlene Williams
+Ismael Barber
+Chester Newton
+Lori Mills
+Elijah Sullivan
+Andre Drake
+Perry Freeman
+Penny Franklin
+Nina Murray
+Lena Arnold
+Jenna French
+Larry Fleming
+Sue Sandoval
+Lynda Roberson
+Jeanne Graves
+Billy Manning
+Oscar Stevenson
+Karl Willis
+Kristina Boone
+Sammy Carr
+Darrin Beck
+Henry Todd
+Gerardo Ramsey
+Terence Parker
+Donnie Aguilar
+Jennifer Copeland
+Ian Hernandez
+Elena Powers
+Ed Wise
+Marguerite Steele
+Seth Reeves
+Samantha Fowler
+Raymond Gomez
+Marie Evans
+Nadine Collins
+Lois Shaw
+Dolores Stevens
+Enrique Zimmerman
+Bennie Romero
+Jaime Kelly
+Monique Figueroa
+Saul Bennett
+Nathan Mccoy
+Annie Jordan
+Henrietta Brock
+Jason Bishop
+Elsie Douglas
+Bobby Daniel
+Preston Miller
+Ellen Bell
+Darla Wells
+Thelma Hansen
+Gretchen Wong
+Drew Fletcher
+Shelly Jennings
+Phyllis Lee
+Emanuel Cole
+Ross Ortiz
+Cody Harrington
+Jo Burke
+Sean Banks
 
 //First section is collection of combat descriptors.
 
-#FightVerb
++fightverb
 cleaved
 split
 severed
@@ -150,7 +260,7 @@ contused
 
 //Now we refer to body parts for the fightverbs to affect
 
-#BodyPart 
++bodypart 
 skull
 arm
 leg
@@ -193,7 +303,7 @@ mouth
 
 //Now we build a collection of potential careers for the game to apply to the player pawns to give them a little back story
 
-#Jobs
++jobs
 Speech-Language Pathologist
 Fitness Trainer
 Occupational Therapist
@@ -327,7 +437,7 @@ Food Scientist
 
 //Now we have a list of character traits which will always go before the job descriptor
 
-#Traits
++traits
 Gentle
 Clever
 Intelligent
@@ -514,7 +624,7 @@ odd
 
 //Now on to the potential enemies, these will be broken out into smaller sections, one for each enemy type.
 
-#EnemyZealot
++enemyz
 Comet Robed
 Incessantly Shrieking
 Howling
@@ -545,7 +655,7 @@ Deranged
 robe adorned in meteor
 
 
-#EnemyScavenger
++enemys
 Snarling
 Angry
 Vicious
@@ -581,7 +691,7 @@ Small
 Quick
 
 
-#EnemyCorrupted
++enemyc
 incandescent
 growling
 snarling
