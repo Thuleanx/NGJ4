@@ -1,5 +1,11 @@
 //List of Character Names
 
++pronoun
+he
+she
+it
+they
+
 +charactername
 Olivier Goulding
 Esa Duncan
