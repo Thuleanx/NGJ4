@@ -40,7 +40,6 @@ public class Unit : Occupant {
 	public void MakeSelectable(Action onSelect) {
 		gameObject.GetComponent<Selectable>().MakeSelectable(onSelect);
 	}
-
 	public void DisableSelectable() {
 		gameObject.GetComponent<Selectable>().DisableSelectable();
 	}

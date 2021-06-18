@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -27,6 +28,8 @@ public struct Grid {
 	public Cell GetCellContent(int x, int y) => arr[x,y];
 	public Vector2Int GetCell(Vector2 worldPosition) => Vector2Int.FloorToInt(worldPosition);
 	public Vector2 GetPosCenter(Vector2Int boardPosition) => boardPosition * Cell2DSize + origin + Cell2DSize/2;
+
+	public static int Approx_Distance(Vector2Int a, Vector2Int b) => Mathf.Abs((a-b).x) + Mathf.Abs((a-b).y);
 
 	public int MoveOccupant(Vector2Int start, Vector2Int end) {
 		if (!arr[start.x, start.y].hasOccupant) return -1;
@@ -59,5 +62,64 @@ public struct Grid {
 
 	public bool CanMoveTo(Vector2Int pos) {
 		return pos.x >= 0 && pos.x < width && pos.y >= 0 && pos.y < height && !GetCellContent(pos.x, pos.y).hasOccupant;
+	}
+	public Path GetPathBetween(Vector2Int start, Vector2Int end, int[] dx = null, int[] dy = null) {
+		dx = dx ?? new int[]{1, -1, 0, 0};
+		dy = dy ?? new int[]{0, 0, -1, 1};
+
+		if (start == end) {
+			Path ans = new Path();
+			ans.add_node(end);
+			return ans;
+		}
+
+		PriorityQueue<Vector2Int, int> pq = new PriorityQueue<Vector2Int, int>();
+		Dictionary<Vector2Int, int> g = new Dictionary<Vector2Int, int>();
+		Dictionary<Vector2Int, Vector2Int> prev = new Dictionary<Vector2Int, Vector2Int>();
+		Func<Vector2Int, int> h = (pos) => {
+			return Approx_Distance(pos, end);
+		};
+
+		Func<Vector2Int, int> f = (pos) => {
+			if (!g.ContainsKey(pos)) return int.MaxValue;
+			return g[pos] + h(pos);
+		};
+		g[start] = 0;
+		pq.push(start, f(start));
+
+
+		while (f(end) == int.MaxValue && pq.Count > 0) {
+			Vector2Int cur = pq.peek(); 
+			int prio = pq.peek_prio();
+			pq.pop();
+			if (prio != f(cur)) continue;
+
+			for (int k = 0; k < dx.Length; k++) {
+				int nx = cur.x + dx[k], ny = cur.y + dy[k];
+				Vector2Int nxt = new Vector2Int(nx, ny);
+
+				if (CanMoveTo(nxt) || nxt == end) {
+					int dist = g[cur] + 1;
+
+					if (!g.ContainsKey(nxt) || dist < g[nxt]) {
+						g[nxt] = dist;
+						prev[nxt] = cur;
+						pq.push(nxt, f(nxt));
+					}
+				}
+			}
+		}
+
+		if (f(end) == int.MaxValue) return null;
+
+		Path res = new Path();
+		while (end != start) {
+			res.add_node(end);
+			end = prev[end];
+		}
+		res.add_node(start);
+		res.reverse();
+
+		return res;
 	}
 }

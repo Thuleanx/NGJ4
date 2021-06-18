@@ -62,6 +62,7 @@ MonoBehaviour:
   board_width: 8
   board_height: 8
   pawn: {fileID: 11400000, guid: d874b719200a44961927b042be722532, type: 2}
+  zealot: {fileID: 11400000, guid: 06632574d6b984eefb1a4c236ce65b0d, type: 2}
   moveIndicator: {fileID: 11400000, guid: 14ef329d535834f26a88aa997a60bc75, type: 2}
   boardBase: {fileID: 11400000, guid: 3c320cdc99b544bc496b5cc6b9dfff85, type: 2}
   boardBaseAlternative: {fileID: 11400000, guid: 587442fbf3b604a1796981a49a4d1367, type: 2}
