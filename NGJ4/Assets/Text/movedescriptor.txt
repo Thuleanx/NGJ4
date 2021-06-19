@@ -2,6 +2,6 @@
 
 +movedescriptor
 
-Test #charactername #fightverb test test #enemyz #eldritchadj
+#charactername #moveverb across an open plain, their party in tow. The wild grasses crackled static as they brushed their clothes. The sun was dyed blue by the thick ash of the meteorite clouding the sky above the crater. This was an alien world dug deep in the Earth's crust.
 
-Test2 #fightverb test test #eldritchadj #charactername
+#charactername #moveverb at the base of the crater. To the North, #spronoun could see the spires of one of the reclaimed villages poking above a nearby copse of woods. Whatever horrors may lay there, #spronoun hoped his companions would stay as vigilant as #opronoun .
