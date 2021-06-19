@@ -227,7 +227,80 @@ Cody Harrington
 Jo Burke
 Sean Banks
 
-//First section is collection of combat descriptors.
+//collection of move verbs
+
++moveverb
+Walked
+Roamed
+Strolled
+Sauntered
+Marched
+Wandered
+Rambled
+Journeyed
+Paced
+Stepped
+Hiked
+Trekked
+Traveled
+Coursed
+Jaunted
+Ambled
+Trod
+Tramped
+Roved
+Strode
+Footed
+Waddled
+Trampled
+Meandered
+Stormed
+Stalked
+Tramped
+Drove
+Headed
+Slogged
+Plodded
+Trudged
+Tracked
+Stomped
+Shuffled
+Traversed
+Paced
+Journeyed
+Roved
+Tromped
+Crept
+Lumbered
+Galumphed
+Footslogged
+Traipsed
+Schlepped
+Thudded
+yomped
+Plowed
+Stumped
+Toiled
+Tromped
+Clumped
+Crossed
+Barged
+Drifted
+Lurched
+Lumped
+Padded
+Pounded
+Scuffled
+Shambled
+Sloughed
+Stumbled
+Tread
+Clomped
+Found their way
+
+
+
+//collection of combat descriptors.
 
 +fightverb
 cleaved
