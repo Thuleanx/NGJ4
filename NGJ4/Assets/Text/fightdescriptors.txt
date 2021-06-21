@@ -27,7 +27,7 @@ Stepping into a #eldritchadj and rubbled home, #charactername saw an enemy #enem
 //fight descriptor meteor
 +fdm
 
-The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash.
+The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash. #coda
 
 //fight descriptor extraction
 
