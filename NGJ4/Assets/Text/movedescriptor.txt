@@ -1,9 +1,48 @@
-//this will be the repo for all movedescriptors
+//this will be the repo for all move descriptor beginnings
 
-+mvd
++mvb
 
 #charactername #moveverb across an open plain, their party in tow. The wild grasses crackled static as they brushed their clothes. The sun was dyed blue by the thick ash of the meteorite clouding the sky above the crater. This was an alien world dug deep in the Earth's crust.
 
 #charactername #moveverb at the base of the crater. To the North, #spronoun could see the spires of one of the reclaimed villages poking above a nearby copse of woods. Whatever horrors may lay there, #spronoun hoped his companions would stay as vigilant as #opronoun .
 
 Looking up, the airship which dropped #charactername 's party off rose into the sky slowly, like a leaf carried on the #eldritchadj wind. All around, the desolate #eldritchadj fields were filled with the sound of a steady hum, like a vibration. It was #eldritchadj , and sick. No matter, #charactername soaked in the area around them, then #moveverb off, hoping they were leading their party in the right direction.
+
+//move descriptor intoforest
+
++mvf1
+The forest before the party was #eldritchadj and #eldritchadj . A far flung mutation to creak and moan like a #eldritchadj family of frogs. #charactername went first. #spronoun #moveverb over the treshold, and into the dark and dank weald.
+
+//move descriptor out of forest
+
++mvf2
+It felt like years in that godforsaken, #eldritchadj forest. So dark and rank, where every shifting weed looked like a loosed arrow or murderous silhouette. When #charactername found the exit, #spronoun sighed with relief. Onward, from there to the end.
+
+//move descriptor into ruins
+
++mvr1
+#charactername #moveverb along the outskirts of the #eldritchadj ruins. Their spires were #eldritchadj and #eldritchadj , as though the #eldritchadj essence haunted this place. The old stone, once green with moss, had turned a putrid blue and earth color. #charactername approached carefully, looking for intruders.
+//move descriptor out of ruins
++mvr2
+With great will comes courage in those #eldritchadj ruins. Just before #charactername concluded it was time to leave, #spronoun heard a #eldritchadj squeak from a nearby, #eldritchadj house. #spronoun thought to check it, #wpn drawn, but saw it was only a small frog...with #eldritchadj eyes. "Let's go," #spronoun said.
+
+//move descriptor into meteorite zone
++mvm1
+And there it was, a bulbous, #eldritchadj boil on the Earth. Even in the thick smoke, the blue and green glow shone its exact location. #charactername pondered what they could not see in this #eldritchadj place, though. "Form up! We are even less safe here than anywhere else we've been," said #charactername .
+//movedescriptor out of meteorite zone
++mvm2
+//move descriptor into tent city
++mvt1
+Half-baked #eldritchadj folk #moveverb about the squat tent city. The tents were made of #eldritchadj skin, and who knows where they got that from in this crater? #coda
+//move descriptor out of tent city
++mvt2
+Though it was a pleasant respite to be among folk who wish nothing but one's wellness...and not to eat all the #eldritchadj food in town, it was time for the party to be going. Back out into the wastes. #coda
+//move descriptor into Zealot Shrine
++mvzs1
+The shrine was massive #eldritchadj spires. Adorned with #eldritchadj depictions of the meteor in various states. In one, it mated with the world. In another, it mated with a cross. This was a foul place. An irreverant and #eldritchadj place. #coda
+//move descriptor out of Zealot Shrine
++mvzs2
+With many of the #eldritchadj zealots left broken by the intruders, #charactername wanted to weep at the squalor men could succumb to in times of worship. #coda
+//move descriptor to extraction site
++mve
+
