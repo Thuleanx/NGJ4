@@ -409,7 +409,6 @@ Lance
 Lochaber axe
 Lucerne hammer
 Man catcher
-Military fork
 Partisan
 Pike
 bat
@@ -1025,3 +1024,17 @@ desolated
 disgraced
 doleful
 dismayed
+
++coda
+What horrors lay in wait?
+"Let's move!" said #charactername .
+A stench most foul.
+What a #eldritchadj sight.
+Horrible, just horrible.
+Ruin, and a doom-laden land.
+Welcome home. The squalid and corrupted excavation. Bound by energy and industry.
+Quickly and uncaringly, that's how life is taken.
+Grand adversity has a beautiful ring to its tone.
+#eldritchadj , #eldritchadj , and #eldritchadj , such is life in the pitted cobbles of this wriggling place.
+Transcendent horror!
+Despondence can be responded to with gallantry, or weakness. 
