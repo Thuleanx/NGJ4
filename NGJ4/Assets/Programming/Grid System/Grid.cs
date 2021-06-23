@@ -35,19 +35,41 @@ public struct Grid {
 		if (!arr[start.x, start.y].hasOccupant) return -1;
 		if (arr[end.x,end.y].hasOccupant) return -1;
 
-		Occupant occupant = arr[start.x, start.y].occupant;
-		occupant.Move(this, end);
-		arr[start.x,start.y].occupant = null;
-		arr[end.x,end.y].occupant = occupant;
+		Occupant Occupant = arr[start.x, start.y].Occupant;
+		Occupant.Move(end);
+
+		arr[start.x,start.y].RemoveOccupant();
+		arr[end.x,end.y].SetOccupant(Occupant);
 
 		return 0;
 	}
 
-	public int AddOccupant(Vector2Int pos, Occupant occupant) {
+	public int SwapOccupant(Vector2Int a, Vector2Int b) {
+		if (!arr[a.x,a.y].hasOccupant) return -1;
+		if (!arr[b.x,b.y].hasOccupant) return -1;
+
+
+		Occupant Occupant = arr[a.x,a.y].Occupant;
+		Occupant Occupant2 = arr[b.x,b.y].Occupant;
+
+		Occupant.Move(b);
+		Occupant2.Move(a);
+		
+		arr[a.x, a.y].RemoveOccupant();
+		arr[b.x, b.y].RemoveOccupant();
+
+		arr[a.x, a.y].SetOccupant(Occupant2);
+		arr[b.x, b.y].SetOccupant(Occupant);
+
+		return 0;
+	}
+
+	public int AddOccupant(Vector2Int pos, Occupant Occupant) {
 		if (arr[pos.x, pos.y].hasOccupant)
 			return -1;
-		arr[pos.x, pos.y].occupant = occupant;
-		occupants.Add(occupant);
+		arr[pos.x, pos.y].SetOccupant(Occupant);
+		Occupant.grid = this;
+		occupants.Add(Occupant);
 		return 0;
 	}
 
@@ -60,8 +82,12 @@ public struct Grid {
 		return units;
 	}
 
-	public bool CanMoveTo(Vector2Int pos) {
-		return pos.x >= 0 && pos.x < width && pos.y >= 0 && pos.y < height && !GetCellContent(pos.x, pos.y).hasOccupant;
+	public bool InGrid(Vector2Int pos) {
+		return pos.x >= 0 && pos.x < width && pos.y >= 0 && pos.y < height;
+	}
+
+	public bool Unoccupied(Vector2Int pos) {
+		return InGrid(pos) && !GetCellContent(pos.x, pos.y).hasOccupant;
 	}
 	public Path GetPathBetween(Vector2Int start, Vector2Int end, int[] dx = null, int[] dy = null) {
 		dx = dx ?? new int[]{1, -1, 0, 0};
@@ -98,7 +124,7 @@ public struct Grid {
 				int nx = cur.x + dx[k], ny = cur.y + dy[k];
 				Vector2Int nxt = new Vector2Int(nx, ny);
 
-				if (CanMoveTo(nxt) || nxt == end) {
+				if (Unoccupied(nxt) || nxt == end) {
 					int dist = g[cur] + 1;
 
 					if (!g.ContainsKey(nxt) || dist < g[nxt]) {
