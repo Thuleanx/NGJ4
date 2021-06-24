@@ -13,6 +13,7 @@ namespace Thuleanx {
 
 		public InputManager _InputManager;
 		public UIManager _UIManager;
+		public NarrativeGenerator _NarrativeGenerator;
 
 		[HideInInspector]
 		public List<BubblePool> activePools = new List<BubblePool>();
