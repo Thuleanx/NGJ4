@@ -23,8 +23,6 @@ public class GameMaster : MonoBehaviour {
 	public BubblePool boardBase;
 	public BubblePool boardBaseAlternative;
 
-
-
 	void Start() {
 		StartGame();
 	}
@@ -40,7 +38,9 @@ public class GameMaster : MonoBehaviour {
 
 		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
 		unit.Attach(pawnObj);
+		unit.vision = 2;
 		grid.AddOccupant(unit.position, unit);
+		App.LocalInstance._VisionTracker.AddUnit(unit);
 	}
 	public void SpawnTestZealotAt(Vector2Int position) {
 		Zealot unit = new Zealot(position);
@@ -64,7 +64,7 @@ public class GameMaster : MonoBehaviour {
 		mode = MODE.BEGIN;
 
 		// construct the grid logically
-		grid = new Grid(8, 8, transform.position, 1f);
+		grid = new Grid(board_width, board_height, transform.position, 1f);
 		// instantiating the grid 
 		foreach (Cell cell in grid.arr) {
 			if ((cell.x + cell.y)%2 == 0)	boardBase.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);

@@ -9,6 +9,7 @@ namespace Thuleanx {
 		public static bool IsEditor = false;
 
 		public static App Instance;
+		public static LocalApp LocalInstance;
 
 		public InputManager _InputManager;
 		public UIManager _UIManager;
@@ -18,7 +19,8 @@ namespace Thuleanx {
 
 		void Awake() {
 			Instance = this;
-			// SceneManager.sceneLoaded += OnNewScene;
+			SceneManager.sceneLoaded += OnNewScene;
+			App.LocalInstance = GameObject.FindObjectOfType<LocalApp>();
 		}
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -28,7 +30,8 @@ namespace Thuleanx {
 			UnityEngine.Object.DontDestroyOnLoad(app);
 		}
 
-		// public void OnNewScene(Scene scene, LoadSceneMode mode) {
-		// }
+		public void OnNewScene(Scene scene, LoadSceneMode mode) {
+			App.LocalInstance = GameObject.FindObjectOfType<LocalApp>();			
+		}
 	}
 }

@@ -1970,8 +1970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e116493631b4c369b26d0ac3dc23f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board_width: 8
-  board_height: 8
+  board_width: 32
+  board_height: 32
   pawn: {fileID: 11400000, guid: d874b719200a44961927b042be722532, type: 2}
   zealot: {fileID: 11400000, guid: 06632574d6b984eefb1a4c236ce65b0d, type: 2}
   moveIndicator: {fileID: 11400000, guid: 14ef329d535834f26a88aa997a60bc75, type: 2}

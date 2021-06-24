@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 public class Unit : Occupant {
 	public Status status;
+	public int vision = 2;
 	// public int range = 3;
 
 	public int[] dx = {-1, 1, 0, 0};
 	public int[] dy = {0, 0, 1, -1};
 
 	public Unit(Vector2Int position) : base(position) {
-		Debug.Log("HI");
 		status = new Status(1);
 	}
 	public virtual List<Vector2Int> GetReachablePositions(Grid grid) 
