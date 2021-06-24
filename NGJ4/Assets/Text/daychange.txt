@@ -1,9 +1,21 @@
 //day change cards
 
 //DC=DayChange, 1=the day
-+DC1
++dc1
 As the party wound down for sleep that night, they could not help but feel watched. There was something out there, looking at them. This land, this #eldritchadj land, knew they had arrived. It knew it, and it didn't like it. #charactername felt a whisper on #ppronoun neck, but shook it off for the sake of sleep. The next morning, they all, thankfully, awoke. It was chilly, so the party set off quickly to gather warmth in their blood.
 
-+DC2
++dc2
 The ache of this #eldritchadj place had started to sink into the party's bones. It wasn't a painful ache, just foreboding, #eldritchadj ache of what was to come. This was only the end of the second day. There would be five more to get through, each more difficult than the last.
 
++dc3
+They say those who have spent too long in the crater develop horrific nightmares. For #charactername , #spronoun found this out first hand. #spronoun was surrounded by #eldritchadj versions of his family. They melted before #ppronoun eyes, but viciously attacked when #spronoun tried to help. A bloody sun was in the sky, which then transformed into the meteor. This, to #charactername , was the most unsettling, because it felt as though the meteor stared directly at #spronoun . It even spoke, saying "Do gods love their spawn? I certainly do not."
+
+
++dc4
+As #charactername lay down to rest, a refrain rolled through #ppronoun mind. "When will this end? Too soon? Too late?" Surely, it will not be right on time. The next morning was cold...Icy, even. #coda
+
++dc5
+A searing, burning sensation swept through #charactername 's leg. #charactername approached to help in the moonlit night. The way #spronoun groped the pain was alluring to both. They ended up entwined that night, a most unexpected place for romance.
+
++dc6
+Tomorrow...Tomorrow they could leave.
