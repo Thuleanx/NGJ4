@@ -4,17 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Zealot : AIUnit {
+	public int range = 3;
+
 	public Zealot(Vector2Int pos) : base(pos) {}
 
 	public override Vector2Int DecideMove(Grid grid) {
-
-		Pawn pawn = null;
+		PlayableUnit pawn = null;
 		foreach (Unit unit in grid.GetAllUnits()) {
-			if (unit is Pawn && 
+			if (unit is PlayableUnit && 
 				(pawn == null || Grid.Approx_Distance(position, unit.position) < 
 				Grid.Approx_Distance(position, pawn.position))) {
 
-				pawn = unit as Pawn;
+				pawn = unit as PlayableUnit;
 			}
 		}
 
@@ -24,7 +25,6 @@ public class Zealot : AIUnit {
 		foreach (Vector2Int point in path.nodes) {
 			res += point.ToString() + " ";
 		}
-		Debug.Log(res);
 		return range < path.Length ? path.nodes[range] : path.Last;
 	}
 }

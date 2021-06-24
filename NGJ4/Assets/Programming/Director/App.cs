@@ -11,6 +11,7 @@ namespace Thuleanx {
 		public static App Instance;
 
 		public InputManager _InputManager;
+		public UIManager _UIManager;
 
 		[HideInInspector]
 		public List<BubblePool> activePools = new List<BubblePool>();

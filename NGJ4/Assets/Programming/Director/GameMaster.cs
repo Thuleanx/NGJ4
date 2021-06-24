@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Thuleanx;
 using Thuleanx.Optimization;
 
 enum MODE {
@@ -18,9 +19,11 @@ public class GameMaster : MonoBehaviour {
 	public int board_width = 8, board_height = 8;
 
 	public BubblePool pawn, zealot;
-	public BubblePool moveIndicator;
+	public BubblePool moveIndicator, actionIndicator;
 	public BubblePool boardBase;
 	public BubblePool boardBaseAlternative;
+
+
 
 	void Start() {
 		StartGame();
@@ -31,19 +34,30 @@ public class GameMaster : MonoBehaviour {
 	public void OtherTurn() => StartCoroutine(_OtherTurn());
 
 	public void SpawnTestUnitAt(Vector2Int position) {
-		Pawn unit = new Pawn(position);
+		PlayableUnit unit = new PlayableUnit(position);
+		unit.AddAction(new ShoulderBash(1, "Shoulder Bash"));
+		unit.AddAction(new Reposition(2, "Reposition"));
+
 		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
-		unit.range = 3;
 		unit.Attach(pawnObj);
 		grid.AddOccupant(unit.position, unit);
 	}
-
 	public void SpawnTestZealotAt(Vector2Int position) {
 		Zealot unit = new Zealot(position);
 		GameObject pawnObj = zealot.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
 		unit.range = 2;
 		unit.Attach(pawnObj);
 		grid.AddOccupant(unit.position, unit);
+	}
+
+	#region Player Turn Variables
+	List<GameObject> _indicators = new List<GameObject>();
+	Unit _selected_unit = null;
+	#endregion
+
+	public void WipeIndicators() {
+		foreach (GameObject obj in _indicators) obj.SetActive(false);
+		_indicators.Clear();
 	}
 
 	IEnumerator _StartGame() {
@@ -66,30 +80,20 @@ public class GameMaster : MonoBehaviour {
 	IEnumerator _PlayerTurn() {
 		mode = MODE.PLAYER_TURN;
 
-		bool selected = false;
-		Unit selected_unit = null;
-		bool selected_move = false;
+		bool selected = false, selected_move = false, action_taken = false;
+		_selected_unit = null;
 		Vector2Int move_to = Vector2Int.zero;
-		List<GameObject> indicators = new List<GameObject>();
 
 		// all units becomes selectable
 		foreach (Unit unit in grid.GetAllUnits()) {
-			if (unit is PlayableUnit) {
+			if ((unit is PlayableUnit) && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) {
 				unit.MakeSelectable(() => {
-					if (selected && selected_unit == unit) return ;
-
-					if (selected)
-						foreach (GameObject obj in indicators)
-							obj.SetActive(false);
-
-					indicators = new List<GameObject>();
-
-					selected_unit = unit;
-					selected = true;
-
-					foreach (Vector2Int nxt in selected_unit.GetReachablePositions(grid)) {
+					if (selected && _selected_unit == unit) return ;
+					WipeIndicators();
+					_selected_unit = unit; selected = true;
+					foreach (Vector2Int nxt in _selected_unit.GetReachablePositions(grid)) {
 						GameObject indicator = moveIndicator.Borrow(grid.GetPosCenter(nxt), Quaternion.identity);
-						indicators.Add(indicator);
+						_indicators.Add(indicator);
 						indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
 							selected_move = true;
 							move_to = nxt;
@@ -100,34 +104,61 @@ public class GameMaster : MonoBehaviour {
 		}
 
 		while (!selected) yield return null;
-
-		// do something
-
 		while (!selected_move) yield return null;
 
-		grid.MoveOccupant(selected_unit.position, move_to);
 
-
-		foreach (GameObject obj in indicators)
-			obj.SetActive(false);
-
-		// all units becomes unselectable
+		WipeIndicators();
 		foreach (Unit unit in grid.GetAllUnits())
-			if (unit is PlayableUnit)
+			if (unit is PlayableUnit && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) 
 				unit.DisableSelectable();
+		grid.MoveOccupant(_selected_unit.position, move_to);
+
+		// now we get to choose an action
+		UnitAction actionChosen = null;
+		Cell action_cell_selected = null;
+
+		App.Instance._UIManager.ActionSelector.StartSelector(_selected_unit as PlayableUnit, (uaction) => {
+			actionChosen = uaction;
+			List<Cell> targets = actionChosen.GetPossibleTargets(_selected_unit as PlayableUnit);
+			WipeIndicators();
+			foreach (Cell cell in targets) {
+				GameObject indicator = actionIndicator.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
+				_indicators.Add(indicator);
+				indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
+					action_taken = true;
+					action_cell_selected = cell;
+					actionChosen.PerformAction(_selected_unit as PlayableUnit, cell);
+				});
+			}
+		}, () => {
+			action_taken = true;
+		});
+
+		while (!action_taken) yield return null;
+		_selected_unit.status.UpdateStatusEffects();
+
+		App.Instance._UIManager.ActionSelector.StopSelectors();
+		WipeIndicators();
+
+		yield return new WaitForSeconds(.5f);
 		
 		OtherTurn();
 	}
-
 	IEnumerator _OtherTurn() {
 		mode = MODE.OTHER_TURN;
 
 		foreach (Unit unit in grid.GetAllUnits()) {
-			if (unit is AIUnit)
-				grid.MoveOccupant(unit.position, (unit as AIUnit).DecideMove(grid));
+			if (unit is AIUnit) {
+				if (!unit.status.AffectedBy((int) StatusEffectID.STUN))
+					grid.MoveOccupant(unit.position, (unit as AIUnit).DecideMove(grid));
+				unit.status.UpdateStatusEffects();
+			}
+				
 		}
 
 		yield return null;
+
+		yield return new WaitForSeconds(.5f);
 
 		PlayerTurn();
 	}
