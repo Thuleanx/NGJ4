@@ -5,7 +5,6 @@ In the #eldritchadj town, the #traits #jobs named #charactername #fightverb the 
 
 //fight descriptor woods
 +fdw
-
 While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on him. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
 While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on her. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class PlayableUnit : Unit {
 	public int range = 3;
-
+	public CharacterInfo info;
 	List<UnitAction> actions = new List<UnitAction>();
 
 	public PlayableUnit(Vector2Int pos) : base(pos) {}

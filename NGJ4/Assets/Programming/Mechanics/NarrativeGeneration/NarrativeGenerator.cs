@@ -15,7 +15,6 @@ public class NarrativeGenerator : MonoBehaviour {
 
 	void Awake() { LoadBanks(); }
 	void Start() {
-		Debug.Log(parse("#story"));
 	}
 
 	void LoadBanks() {
@@ -62,7 +61,7 @@ public class NarrativeGenerator : MonoBehaviour {
 		Rule current = ruleMap[rule];
 		return parse(current.possibleSentences[rng.Range(0, current.possibleSentences.Count-1)]);
 	}	
-	string parse(string cmd) {
+	public string parse(string cmd) {
 		string res = "";
 
 		string temp = "";

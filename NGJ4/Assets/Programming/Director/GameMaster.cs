@@ -35,6 +35,7 @@ public class GameMaster : MonoBehaviour {
 		PlayableUnit unit = new PlayableUnit(position);
 		unit.AddAction(new ShoulderBash(1, "Shoulder Bash"));
 		unit.AddAction(new Reposition(2, "Reposition"));
+		unit.info = CharacterInfo.GenerateCharacter(CharacterClass.Soldier);
 
 		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
 		unit.Attach(pawnObj);

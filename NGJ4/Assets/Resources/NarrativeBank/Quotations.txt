@@ -1,5 +1,4 @@
 //here i will input a series of quotations from legendary texts just for fun. They could be used for flavor text on capture or robbery
 
 +capturequotation
-
 The #enemyz Zealot who captured #charactername took a poisonous snake and fastened it above them, so that its poison drips onto #pronoun face. The wife of this Zealot placed herself beside #pronoun from where she held a bowl to catch the drops of venom. When the bowl becomes full, she pours out the poison onto #charactername 's face. #pronoun convulses so violently that the cobbled walls shake.

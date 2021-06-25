@@ -1,0 +1,15 @@
+// List of character names for each gender
+
++fcharName
+Olivia
+
++mcharName
+Daniel
+
++acharName
+Avery
+Haven
+
++familyName
+Of The Blue
+Lyon
