@@ -4,8 +4,10 @@
 +prlg
 Come, and hear a tale of #charactername , #charactername , #charactername , and #charactername . Four brave people sent to the heart of my crater, my Lokthlokh, with the promise of riches. The meteorite, in their world, supplies all their energy, supplies their society with a techological prowess beyond anything their puny minds could have considered before I came, before Lokthlokh. So stay, and watch as yet another band attempt what so few can...to steal from me.
 
-+eplg
++eplg1
 The #eldritchadj vermin escaped with a paltry few, but at what cost? Of course, they can buy a life worth more, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
++eplg2
 The #eldritchadj vermin escaped with a sizeable amount of my Lokthlokh, but at what cost? Of course, they can buy a life worth more, perhaps purchase themselves from indentured servitude, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
++eplg3
 The #eldritchadj vermin escaped with far too much of my Lokthlokh. I am...enraged. But, so long as I live, the Lokthlokh will live, and if I ever see one of their pallid, sallow faces again.
-...
+... How could I have been foiled? I can see in their minds. I see #charactername 's daughter put down to rest in a crib made of ribcage. I can see #charactername 's yellow dinner table glow. #spronoun sit among guests, laughing. But #charactername doesn't. #spronoun stares at his #eldritchadj meal, grub, rations. #spronoun 's eyes are glazed, fearful. This species is weak, corruptable.
