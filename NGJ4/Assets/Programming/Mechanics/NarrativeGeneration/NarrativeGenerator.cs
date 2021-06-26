@@ -11,6 +11,7 @@ class Rule {
 
 public class NarrativeGenerator : MonoBehaviour {
 	Dictionary<string, Rule> ruleMap = new Dictionary<string, Rule>();
+	Dictionary<string, string> ruleOverride = new Dictionary<string, string>();
 	mt19937 rng = new mt19937(1234);
 
 	void Awake() { LoadBanks(); }
@@ -54,6 +55,7 @@ public class NarrativeGenerator : MonoBehaviour {
 		}
 	}
 	string dfs(string rule) {
+		if (ruleOverride.ContainsKey(rule))	return parse(ruleOverride[rule]);
 		if (!ruleMap.ContainsKey(rule)) {
 			Debug.LogError("Rule " + rule + " not found within knowledge bank. Please check your spelling / syntax.");
 			throw new System.Exception("Format error");
@@ -87,7 +89,15 @@ public class NarrativeGenerator : MonoBehaviour {
 		return res;
 	}
 
-	public void Load(CharacterInfo info) {
+	public void ClearOverrides() => ruleOverride.Clear();
 
+	public void Load(CharacterInfo info) {
+		ruleOverride["charactername"] = info.fullName;
+		ruleOverride["spronoun"] = info.gender.SPronoun();
+		ruleOverride["opronoun"] = info.gender.OPronoun();
+		ruleOverride["ppronoun"] = info.gender.PPronoun();
+		ruleOverride["wpn"] = info.equipment;
+		ruleOverride["jobs"] = info.job;
+		ruleOverride["traits"] = info.trait;
 	}
 }

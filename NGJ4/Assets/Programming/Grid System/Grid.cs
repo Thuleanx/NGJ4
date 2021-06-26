@@ -25,8 +25,9 @@ public struct Grid {
 				arr[x,y] = new Cell(x,y);
 	}
 
-	public Cell GetCellContent(int x, int y) => arr[x,y];
-	public Vector2Int GetCell(Vector2 worldPosition) => Vector2Int.FloorToInt(worldPosition);
+	public Cell GetCell(int x, int y) => arr[x,y];
+	public Cell GetCell(Vector2Int pos) => arr[pos.x, pos.y];
+	public Vector2Int WorldToGridPosition(Vector2 worldPosition) => Vector2Int.FloorToInt(worldPosition);
 	public Vector2 GetPosCenter(Vector2Int boardPosition) => boardPosition * Cell2DSize + origin + Cell2DSize/2;
 
 	public static int Approx_Distance(Vector2Int a, Vector2Int b) => Mathf.Abs((a-b).x) + Mathf.Abs((a-b).y);
@@ -87,7 +88,7 @@ public struct Grid {
 	}
 
 	public bool Unoccupied(Vector2Int pos) {
-		return InGrid(pos) && !GetCellContent(pos.x, pos.y).hasOccupant;
+		return InGrid(pos) && !GetCell(pos.x, pos.y).hasOccupant;
 	}
 	public Path GetPathBetween(Vector2Int start, Vector2Int end, int[] dx = null, int[] dy = null) {
 		dx = dx ?? new int[]{1, -1, 0, 0};

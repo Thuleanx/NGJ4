@@ -9,7 +9,7 @@ Font:
   m_Name: Silver
   serializedVersion: 5
   m_LineSpacing: 19.894737
-  m_DefaultMaterial: {fileID: 2100000, guid: 239cc63da8d6e4cc0923697b6beb7a83, type: 2}
+  m_DefaultMaterial: {fileID: 0}
   m_FontSize: 18
   m_Texture: {fileID: 2800000, guid: fb1154552405446c0b4356efd61e6428, type: 3}
   m_AsciiStartOffset: 0

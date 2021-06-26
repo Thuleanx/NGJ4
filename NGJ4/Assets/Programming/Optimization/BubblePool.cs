@@ -13,6 +13,11 @@ namespace Thuleanx.Optimization {
 		[HideInInspector]
 		public Dictionary<Scene, List<Bubble>> BorrowToScene = new Dictionary<Scene, List<Bubble>>();
 
+
+		public GameObject Borrow() {
+			return Borrow(Vector2.zero, Quaternion.identity, SceneManager.GetActiveScene());
+		}
+
 		public GameObject Borrow(Scene bubbleScene) {
 			return Borrow(Vector2.zero, Quaternion.identity, bubbleScene);
 		}
