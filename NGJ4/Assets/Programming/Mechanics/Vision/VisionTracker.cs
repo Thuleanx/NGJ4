@@ -19,7 +19,8 @@ public class VisionTracker : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			if (i < units.Count) {
 				mat.SetVector("_VisionPosition" + i, units[i].WorldPosition);
-				mat.SetVector("_VisionFadeRange" + i, new Vector2(units[i].vision, units[i].vision + visionFadeoff));
+				mat.SetVector("_VisionFadeRange" + i, new Vector2(
+					units[i].vision - visionFadeoff/2, units[i].vision + visionFadeoff/2));
 			} else {
 				mat.SetVector("_VisionFadeRange" + i, Vector2.zero);
 			}

@@ -86,4 +86,8 @@ public class NarrativeGenerator : MonoBehaviour {
 			res += dfs(temp);
 		return res;
 	}
+
+	public void Load(CharacterInfo info) {
+
+	}
 }

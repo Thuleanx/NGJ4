@@ -20,8 +20,8 @@ public class GameMaster : MonoBehaviour {
 
 	public BubblePool pawn, zealot;
 	public BubblePool moveIndicator, actionIndicator;
-	public BubblePool boardBase;
-	public BubblePool boardBaseAlternative;
+	// public BubblePool boardBase;
+	// public BubblePool boardBaseAlternative;
 
 	void Start() {
 		StartGame();
@@ -39,7 +39,7 @@ public class GameMaster : MonoBehaviour {
 
 		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
 		unit.Attach(pawnObj);
-		unit.vision = 2;
+		unit.vision = 4;
 		grid.AddOccupant(unit.position, unit);
 		App.LocalInstance._VisionTracker.AddUnit(unit);
 	}
@@ -66,11 +66,11 @@ public class GameMaster : MonoBehaviour {
 
 		// construct the grid logically
 		grid = new Grid(board_width, board_height, transform.position, 1f);
-		// instantiating the grid 
-		foreach (Cell cell in grid.arr) {
-			if ((cell.x + cell.y)%2 == 0)	boardBase.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
-			else 							boardBaseAlternative.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
-		}
+		// // instantiating the grid 
+		// foreach (Cell cell in grid.arr) {
+		// 	if ((cell.x + cell.y)%2 == 0)	boardBase.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
+		// 	else 							boardBaseAlternative.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
+		// }
 		SpawnTestUnitAt(Vector2Int.zero);
 		SpawnTestUnitAt(new Vector2Int(3, 3));
 		SpawnTestZealotAt(new Vector2Int(7, 7));

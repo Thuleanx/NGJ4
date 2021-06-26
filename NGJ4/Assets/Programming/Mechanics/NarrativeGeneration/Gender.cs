@@ -5,7 +5,7 @@ public enum Gender {
 	AMBI = 2
 }
 
-public static class Extensions {
+public static class Gender_Extensions {
 	public static string SPronoun(this Gender gender) => 
 		(new string[]{"he", "she", "they"})[(int) gender];
 	public static string OPronoun(this Gender gender) => 
