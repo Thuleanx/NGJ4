@@ -5,7 +5,7 @@ public class Pray : UnitAction {
 	public Pray(int id, string name) : base(id, name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
-		return new List<Cell>{punit.grid.GetCellContent(punit.position.x, 
+		return new List<Cell>{punit.grid.GetCell(punit.position.x, 
 			punit.position.y)};
 	}
 

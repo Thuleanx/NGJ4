@@ -107,6 +107,9 @@ public class GameMaster : MonoBehaviour {
 		while (!selected) yield return null;
 		while (!selected_move) yield return null;
 
+		App.LocalInstance._Narrator.OnMove(_selected_unit as PlayableUnit,
+			grid.GetCell(_selected_unit.position), 
+			grid.GetCell(move_to));
 
 		WipeIndicators();
 		foreach (Unit unit in grid.GetAllUnits())

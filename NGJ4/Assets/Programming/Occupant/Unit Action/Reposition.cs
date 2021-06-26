@@ -17,7 +17,7 @@ public class Reposition : UnitAction {
 				Vector2Int target = punit.position + 
 					(z * new Vector2Int(dx[k], dy[k]));
 				if (!punit.grid.InGrid(target)) break;
-				Cell other = punit.grid.GetCellContent(target.x, target.y);
+				Cell other = punit.grid.GetCell(target.x, target.y);
 				if (other.hasOccupant && (other.Occupant is PlayableUnit)) {
 					cells.Add(other);
 				} else break;

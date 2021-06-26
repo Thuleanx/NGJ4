@@ -104,8 +104,8 @@ MonoBehaviour:
   material: {fileID: -4722600270115124701}
   materialHashCode: 873662519
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 3f9e65d7007fc4ef1aed039a1f1b2a1a
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 3f9e65d7007fc4ef1aed039a1f1b2a1a, type: 3}
+  m_SourceFontFileGUID: 4a6d1f671d9974a0687064f6966f0f0e
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4a6d1f671d9974a0687064f6966f0f0e, type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_StyleName: Medium
     m_PointSize: 18
     m_Scale: 1
-    m_LineHeight: 19.894737
+    m_LineHeight: 12
     m_AscentLine: 11.368421
     m_CapLine: 9
     m_MeanLine: 6
