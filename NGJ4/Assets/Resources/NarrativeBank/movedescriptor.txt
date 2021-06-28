@@ -3,58 +3,58 @@
 
 //this will be the repo for all move descriptor beginnings
 +mvb
-#charactername #moveverb across an open plain, their party in tow. The wild grasses crackled static as they brushed their clothes. The sun was dyed blue by the thick ash of the meteorite clouding the sky above the crater. This was an alien world dug deep in the Earth's crust.
-#charactername #moveverb at the base of the crater. To the North, #spronoun could see the spires of one of the reclaimed villages poking above a nearby copse of woods. Whatever horrors may lay there, #spronoun hoped his companions would stay as vigilant as #opronoun .
-Looking up, the airship which dropped #charactername 's party off rose into the sky slowly, like a leaf carried on the #eldritchadj wind. All around, the desolate #eldritchadj fields were filled with the sound of a steady hum, like a vibration. It was #eldritchadj , and sick. No matter, #charactername soaked in the area around them, then #moveverb off, hoping they were leading their party in the right direction.
+#fname #moveverb across an open plain, their party in tow. The wild grasses crackled static as they brushed their clothes. The sun was dyed blue by the thick ash of the meteorite clouding the sky above the crater. This was an alien world dug deep in the Earth's crust.
+#fname #moveverb at the base of the crater. To the North, #spronoun could see the spires of one of the reclaimed villages poking above a nearby copse of woods. Whatever horrors may lay there, #spronoun hoped his companions would stay as vigilant as #opronoun .
+Looking up, the airship which dropped #fname 's party off rose into the sky slowly, like a leaf carried on the #eldritchadj wind. All around, the desolate #eldritchadj fields were filled with the sound of a steady hum, like a vibration. It was #eldritchadj , and sick. No matter, #fname soaked in the area around them, then #moveverb off, hoping they were leading their party in the right direction.
 
 
 //move descriptor intoforest
 +mvf1
-The forest before the party was #eldritchadj and #eldritchadj . A far flung mutation to creak and moan like a #eldritchadj family of frogs. #charactername went first. #spronoun #moveverb over the treshold, and into the dark and dank weald.
+The forest before the party was #eldritchadj and #eldritchadj . A far flung mutation to creak and moan like a #eldritchadj family of frogs. #fname went first. #spronoun #moveverb over the treshold, and into the dark and dank weald.
 The #eldritchadj forest whined against the wind. The trees themselves seemed to whisper to one another. A wall of dank earth smell washed over the party as they pushed into the forest. It was the quickest path to their next destination...or so they hoped.
 
 
 //move descriptor out of forest
 +mvf2
-It felt like years in that godforsaken, #eldritchadj forest. So dark and rank, where every shifting weed looked like a loosed arrow or murderous silhouette. When #charactername found the exit, #spronoun sighed with relief. Onward, from there to the end.
+It felt like years in that godforsaken, #eldritchadj forest. So dark and rank, where every shifting weed looked like a loosed arrow or murderous silhouette. When #fname found the exit, #spronoun sighed with relief. Onward, from there to the end.
 
 
 //move descriptor into ruins
 +mvr1
-#charactername #moveverb along the outskirts of the #eldritchadj ruins. Their spires were #eldritchadj and #eldritchadj , as though the #eldritchadj essence haunted this place. The old stone, once green with moss, had turned a putrid blue and earth color. #charactername approached carefully, looking for intruders.
+#fname #moveverb along the outskirts of the #eldritchadj ruins. Their spires were #eldritchadj and #eldritchadj , as though the #eldritchadj essence haunted this place. The old stone, once green with moss, had turned a putrid blue and earth color. #fname approached carefully, looking for intruders.
 
 
 //move descriptor out of ruins
 +mvr2
-With great will comes courage in those #eldritchadj ruins. Just before #charactername concluded it was time to leave, #spronoun heard a #eldritchadj squeak from a nearby, #eldritchadj house. #spronoun thought to check it, #wpn drawn, but saw it was only a small frog...with #eldritchadj eyes. "Let's go," #spronoun said.
+With great will comes courage in those #eldritchadj ruins. Just before #fname concluded it was time to leave, #spronoun heard a #eldritchadj squeak from a nearby, #eldritchadj house. #spronoun thought to check it, #wpn drawn, but saw it was only a small frog...with #eldritchadj eyes. "Let's go," #spronoun said.
 
 
 //move descriptor into meteorite zone
 +mvm1
-And there it was, a bulbous, #eldritchadj boil on the Earth. Even in the thick smoke, the blue and green glow shone its exact location. #charactername pondered what they could not see in this #eldritchadj place, though. "Form up! We are even less safe here than anywhere else we've been," said #charactername .
-#charactername stalked among the tall grasses, trying to get a peak at the meteor before the party approached with their extraction equipment. A #enemyz zealot had placed himself, naked, against its surface. Smoke billowed from around his body, and he shrieked in agony, yet he did not move. Eventually, his torso fell away. #charactername only knew this because #spronoun saw a blackened spinal cord still propping the fresh corpse upright. #coda 
+And there it was, a bulbous, #eldritchadj boil on the Earth. Even in the thick smoke, the blue and green glow shone its exact location. #fname pondered what they could not see in this #eldritchadj place, though. "Form up! We are even less safe here than anywhere else we've been," said #fname .
+#fname stalked among the tall grasses, trying to get a peak at the meteor before the party approached with their extraction equipment. A #enemyz zealot had placed himself, naked, against its surface. Smoke billowed from around his body, and he shrieked in agony, yet he did not move. Eventually, his torso fell away. #fname only knew this because #spronoun saw a blackened spinal cord still propping the fresh corpse upright. #coda 
 
 
 //movedescriptor out of meteorite zone
 +mvm2
-The radiant heat crept up under their jackets, into their boots, sidling up and sitting in their #eldritchadj armpits. #charactername was running full clip with an armful of the blue and black chunks. They tumbled out of #opronoun arms and thunked on the dusty ground. #charactername had a rucksack full of them, too. The fear painted on #opronoun face was so complete it was nearly comical. The group made for the edge of the dead zone. It was time. Time to go home.
-For a brief, #eldritchadj moment, it looked as though the party would never make anything out of this job. And even then, when #charactername plummeted to the ground as they all ran away from the site, and the #enemyz , #eldritchadj Zealots in particular, there was an impossible, unstoppable fear. What #charactername lost in the fall was insignificant, though, a few chunks of this #eldritchadj material could buy a home.
+The radiant heat crept up under their jackets, into their boots, sidling up and sitting in their #eldritchadj armpits. #fname was running full clip with an armful of the blue and black chunks. They tumbled out of #opronoun arms and thunked on the dusty ground. #fname had a rucksack full of them, too. The fear painted on #opronoun face was so complete it was nearly comical. The group made for the edge of the dead zone. It was time. Time to go home.
+For a brief, #eldritchadj moment, it looked as though the party would never make anything out of this job. And even then, when #fname plummeted to the ground as they all ran away from the site, and the #enemyz , #eldritchadj Zealots in particular, there was an impossible, unstoppable fear. What #fname lost in the fall was insignificant, though, a few chunks of this #eldritchadj material could buy a home.
 
 
 //move descriptor into tent city
 +mvt1
 Half-baked #eldritchadj folk #moveverb about the squat tent city. The tents were made of #eldritchadj skin, and who knows where they got that from in this crater? #coda
-"That field over there, past the leaning tree," a #traits man said, pointing over a few tents. "That's where the Battle of Grattacal was fought. A terrible time. #eldritchadj fight." "Oh?" #charactername said. "All for meteorite. the companymen wanted us to give up our share. We fought em and won."
+"That field over there, past the leaning tree," a #traits man said, pointing over a few tents. "That's where the Battle of Grattacal was fought. A terrible time. #eldritchadj fight." "Oh?" #fname said. "All for meteorite. the companymen wanted us to give up our share. We fought em and won."
 #eldritchadj eyes sunk into the sockets of every man, woman, and deformed child in his #eldritchadj place. One man was propped against a post in the center of town. No arms, no legs. He was shouting about the end of the world. There were a few woven bands of something in a hat next to him. Currency. #coda 
 
 
 //move descriptor out of tent city
 +mvt2
-Though it was a pleasant respite to be among folk who wish nothing but one's wellness...and for #charactername not to eat all the #eldritchadj food in town, it was time for the party to be going. Back out into the wastes. #coda
-"We wish we could help," #charactername said. "No one can," said an old woman. Her fingers were coated in layer of substance which looked like obsidian. In the cracks of the obsidian, a soft blue glow emanated. Greens swam in the blue, too. #eldritchadj ...and foul. The party left with nothing more.
-"You're a vicious lot," said a child. The child was scruffy and holding a spike. "We're going," said #charactername . "Don't forget to stab any Zealot out there, right in the eye. Tell 'em #charactername says to stay out of our camp! His mother came by and tugged him away.
+Though it was a pleasant respite to be among folk who wish nothing but one's wellness...and for #fname not to eat all the #eldritchadj food in town, it was time for the party to be going. Back out into the wastes. #coda
+"We wish we could help," #fname said. "No one can," said an old woman. Her fingers were coated in layer of substance which looked like obsidian. In the cracks of the obsidian, a soft blue glow emanated. Greens swam in the blue, too. #eldritchadj ...and foul. The party left with nothing more.
+"You're a vicious lot," said a child. The child was scruffy and holding a spike. "We're going," said #fname . "Don't forget to stab any Zealot out there, right in the eye. Tell 'em #fname says to stay out of our camp! His mother came by and tugged him away.
 One tent set fire as the party #moveverb among the market shops. A group of men ran toward it with anything they could grab and began to beat at it. A soot-covered woman came crawling from the billowing smoke. Her eyes were stark white as she stared out at the crowd. The rags wrapped around her smoked and singed. #coda 
-"Do you hear that howling?" a man with no arms and no legs said. He was propped against a post at the center of town next to a book with strange inscriptions. "The wind?" #charactername said. "No...that's them. They come all the time. In the night. They take someone, just one. We can't ever seem to catch them." "We have no interest in catching them," #charactername said. "Then leave our home."
+"Do you hear that howling?" a man with no arms and no legs said. He was propped against a post at the center of town next to a book with strange inscriptions. "The wind?" #fname said. "No...that's them. They come all the time. In the night. They take someone, just one. We can't ever seem to catch them." "We have no interest in catching them," #fname said. "Then leave our home."
 
 
 //move descriptor into Zealot Shrine
@@ -64,11 +64,11 @@ The shrine was massive #eldritchadj spires. Adorned with #eldritchadj depictions
 
 //move descriptor out of Zealot Shrine
 +mvzs2
-With many of the #eldritchadj zealots left broken by the intruders, #charactername wanted to weep at the squalor men could succumb to in times of worship. #coda
+With many of the #eldritchadj zealots left broken by the intruders, #fname wanted to weep at the squalor men could succumb to in times of worship. #coda
 
 
 //move descriptor to extraction site
 +mve
 
-They saw the airship touch down in a field not far away. Its steady spike sank into the #eldritchadj earth while the rotors fluttered slower and slower. Atop the cockpit seat, the pilot from seven days before smoked a pipe as big as #charactername 's arm. His goggles reflected the blaze of the furnace. He turned his head right to see them, then raised an arm. They were close, close to the end.  
+They saw the airship touch down in a field not far away. Its steady spike sank into the #eldritchadj earth while the rotors fluttered slower and slower. Atop the cockpit seat, the pilot from seven days before smoked a pipe as big as #fname 's arm. His goggles reflected the blaze of the furnace. He turned his head right to see them, then raised an arm. They were close, close to the end.  
 

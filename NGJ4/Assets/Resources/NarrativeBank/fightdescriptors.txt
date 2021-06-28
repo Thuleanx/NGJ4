@@ -1,37 +1,60 @@
-//fight descriptor town
-+fdt
-
-In the #eldritchadj town, the #traits #jobs named #charactername #fightverb the #enemyz Zealot's #bodypart . The pain was so great, the Zealot died instantly.
-
 //fight descriptor woods
 +fdw
-While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on him. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
-While frogging in a #eldritchadj stream, #charactername spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #charactername pounced on the Scavenger while #spronoun had the drop on her. #charactername #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+While frogging in a #eldritchadj stream, #fname spotted a #enemys Scavenger relieving himself in the water. Fearing the worst, #fname pounced on the Scavenger while #spronoun had the drop on him. #fname #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
+While frogging in a #eldritchadj stream, #fname spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #fname pounced on the Scavenger while #spronoun had the drop on her. #fname #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
 
 //fight descriptor ruins
 +fdr
 //1m
-Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #charactername having #fightverb his #bodypart . The Zealot lay in a broken mess, unable to call for help.
+Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #fname having #fightverb his #bodypart . The Zealot lay in a broken mess, unable to call for help.
 //1f
-Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing her arms about in an incantation, was cut short by #charactername having #fightverb her #bodypart . The Zealot lay in a broken mess, unable to call for help.
+Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing her arms about in an incantation, was cut short by #fname having #fightverb her #bodypart . The Zealot lay in a broken mess, unable to call for help.
 //2m
-Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, he hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at his lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, he hit the ground in a #eldritchadj thud. #fname approached. The Scavenger looked up fearfully at them, blood forming at his lips. #fname #fightverb her #bodypart . It was a quick shriek. A quick death.
 //2f
-Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #charactername approached. The Scavenger looked up fearfully at them, blood forming at her lips. #charactername #fightverb her #bodypart . It was a quick shriek. A quick death.
+Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #fname approached. The Scavenger looked up fearfully at them, blood forming at her lips. #fname #fightverb her #bodypart . It was a quick shriek. A quick death.
 //3
-#charactername put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #charactername saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out and #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
+#fname put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #fname saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out and #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
 //4
-Stepping into a #eldritchadj and rubbled home, #charactername saw an enemy #enemys Scavenger digging through a tattered pile of clothes. #charactername crept up on the Scavenger, then, in a bout of insane violence, #spronoun #fightverb their #bodypart , leaving them an #eldritchadj mess. Forgotten and to be reclaimed.
+Stepping into a #eldritchadj and rubbled home, #fname saw an enemy #enemys Scavenger digging through a tattered pile of clothes. #fname crept up on the Scavenger, then, in a bout of insane violence, #spronoun #fightverb their #bodypart , leaving them an #eldritchadj mess. Forgotten and to be reclaimed.
 
 //fight descriptor meteor
 +fdm
 
-The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #charactername coming, it was not enough. #charactername dodged a swipe from the corrupted, then threw all their weight into an attack. #charactername #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash. #coda
+The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #fname coming, it was not enough. #fname dodged a swipe from the corrupted, then threw all their weight into an attack. #fname #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash. #coda
 
 //fight descriptor extraction
 
 +fde
 //1
-At a short distance, the pilot of an #eldritchadj airship beckoned the party frantically from his lofty cockpit seat. The party set off at a run, but #charactername was pounced on by a #enemyc horror. It was a sapling with a boar's head, gnashing jaws dripping curdled dross on #opronoun . #spronoun raised a knee, flipping the #eldritchadj monstrosity off #opronoun , then #fightverb the thing's #bodypart . It squealed, but thankfully came to rest. #charactername sprinted after #opronoun new family, finally home for a better life.
+At a short distance, the pilot of an #eldritchadj airship beckoned the party frantically from his lofty cockpit seat. The party set off at a run, but #fname was pounced on by a #enemyc horror. It was a sapling with a boar's head, gnashing jaws dripping curdled dross on #opronoun . #spronoun raised a knee, flipping the #eldritchadj monstrosity off #opronoun , then #fightverb the thing's #bodypart . It squealed, but thankfully came to rest. #fname sprinted after #opronoun new family, finally home for a better life.
 //2
-Under the warbling engines of the extraction ship, #charactername spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #charactername #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
+Under the warbling engines of the extraction ship, #fname spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #fname #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
+
+//this section will contain regarding tool use, so "stu = soldier tool use" htu = healer tool use mtu = miner tool use , and rtu = ranger (scout) tool use. each will have 1 and 2, for the two abilities
+
++stu1
+Shoulder braced, #fname threw #rpronoun into the #enemy_type , #fightverb its #bodypart . #enemy_type was thrown back twenty paces from the blow. #fname bared #ppronoun at the #enemy_type , ready for another round.
+In an unexpected burst of strength, #fname charged the #enemy_type , gripping their body part so tight #spronoun heard a squelch, then hurled the #eldritchadj fiend fifteen feet.
++stu2
+"On my position!" #fname said.
+"Hold here!" #fname said. "I'll charge around!"
+
++htu1
+The healer #fname kneeled at the sight of chaos, hands clasped in #eldritchadj prayer. #spronoun stifled a #eldritchadj whimper, as tears dripped down #ppronoun face. #coda 
+#fname could not help but bask in the glow of the holy spirit in that moment. Even against such horrific odds, #spronoun finds grace in a dead, #eldritchadj God.
++htu2
+With #ppronoun #eldritchadj hands, #spronoun uncorks a bottle of black liquid swirling with glints of silver. #spronoun doused the corruption hastily and liberally. The obisidan spread halts and sizzles. "Mercy," #spronoun says.
+This wound is perhaps too far gone, but #fname be damned if #spronoun didn't try. #spronoun let a few drops land on the stinking, #eldritchadj corruption. "This may save you," #fname said. "May."
+
++mtu1
+#fname , with an uncomfortably large smile across #ppronoun face, shotput a bear trap out in the area between the party and the endless onslaught of #enemy_type. Soon enough, one would step in the wrong place, and would be short work from there.
++mtu2
+
+
++rtu1
+#fname took quick aim at the #eldritchadj #enemy_type barrelling toward them. With #ppronoun #rwpn , #spronoun squeezed off a volley which #fightverb the #eldritchadj fiend in its #bodypart . The #enemy_type seemed stunned to be hit from so far away. #fname smirked. Let them come.
+Darting among the thrush and #eldritchadj cackle of battle, and with enemies seemingly always following, #fname readied #ppronoun #rwpn and took aim. When it was just right, the hiss of air was like a bird song. The aim was true, having #fightverb the snarling, #eldritchadj bastard #enemy_type in its #bodypart . Good, pain for them is good.
++rtu2
+"I'll get an angle on them," said #fname . #fname nodded, and the scout took off through the static grasses, blurring into the everpresent moonlight soon enough.
+"A flank will be good," said #fname . Without another word, the scout bounded up a small hill nearby. The only reason the party knew #ppronouns location was a raised, gloved hand stuck upright in a stiff wave.

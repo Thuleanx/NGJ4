@@ -15,6 +15,12 @@ his
 her
 their
 
+//reflexive pronouns
++rpronoun
+himself
+herself
+themselves
+
 +charactername
 Olivier Goulding
 Esa Duncan
@@ -737,6 +743,12 @@ venomous
 detailed
 dashing
 odd
+
+//grouping enemies a little bit better
++enemy_type
+#enemyz , #eldritchadj Zealot.
+#enemyc #eldritchadj Corrupted.
+#enemys , #enemys Scavenger.
 
 //Now on to the potential enemies, these will be broken out into smaller sections, one for each enemy type.
 
