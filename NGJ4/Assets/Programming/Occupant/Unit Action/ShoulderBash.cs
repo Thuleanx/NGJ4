@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[CreateAssetMenu(fileName = "ShoulderBash", menuName = "~/Ability/ShoulderBash", order = 0)]
 public class ShoulderBash : UnitAction {
 	public int range = 2;
 	public int push_distance = 2;
@@ -13,6 +14,8 @@ public class ShoulderBash : UnitAction {
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
 
+		Debug.Log(range + " " + push_distance);
+
 		for (int k = 0; k < dx.Length; k++) {
 			for (int z = 1; z <= range; z++) {
 				Vector2Int target = punit.position + 
@@ -21,7 +24,7 @@ public class ShoulderBash : UnitAction {
 				Cell other = punit.grid.GetCell(target.x, target.y);
 				if (other.hasOccupant && !(other.Occupant is PlayableUnit)) {
 					cells.Add(other);
-				} else break;
+				} 
 			}
 		}
 

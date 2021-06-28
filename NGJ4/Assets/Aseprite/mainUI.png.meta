@@ -8,6 +8,15 @@ TextureImporter:
   - first:
       213: 57893847723538095
     second: mainUI_16
+  - first:
+      213: 4790544791407517220
+    second: mainUI_17
+  - first:
+      213: -426724708218913023
+    second: mainUI_18
+  - first:
+      213: 3480279739059658705
+    second: mainUI_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -215,13 +224,13 @@ TextureImporter:
       name: mainUI_6
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 80
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 1, z: 1, w: 1}
+      border: {x: 1, y: 1, z: 1, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -322,7 +331,7 @@ TextureImporter:
         serializedVersion: 2
         x: 16
         y: 64
-        width: 16
+        width: 4
         height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -448,17 +457,80 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 112
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 1, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: fa6fd34d52eadc000800000000000000
       internalID: 57893847723538095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainUI_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e517c3b1f6b7240800000000000000
+      internalID: 4790544791407517220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainUI_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fbab58328f31af0800000000000000
+      internalID: -426724708218913023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainUI_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfd3adbbff6c4030800000000000000
+      internalID: 3480279739059658705
       vertices: []
       indices: 
       edges: []

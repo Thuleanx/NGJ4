@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UnitAction {
+public class UnitAction : ScriptableObject {
 	public int ActionID;
 	public string ActionName;
+	public Sprite icon;
 
 	public UnitAction(int id, string name) {
 		ActionID = id;

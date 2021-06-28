@@ -12,7 +12,6 @@ namespace Thuleanx {
 		public static LocalApp LocalInstance;
 
 		public InputManager _InputManager;
-		public UIManager _UIManager;
 		public NarrativeGenerator _NarrativeGenerator;
 
 		[HideInInspector]

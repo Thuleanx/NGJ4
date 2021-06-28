@@ -1,23 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Collections.Generic;
-using TMPro;
-
-using Thuleanx.Utility;
 
 [RequireComponent(typeof(Toggle))]
-public class ActionToggle : MonoBehaviour {
+public class AbilityToggle : MonoBehaviour {
 	[HideInInspector] Toggle toggle;
-	public Optional<TMP_Text> title_text;
+	[SerializeField] Image skillIcons;
 
 	private void Awake() {
 		toggle = GetComponent<Toggle>();
-		if (!title_text.Enabled) title_text = new Optional<TMP_Text>(GetComponentInChildren<TMP_Text>());
 	}
 
 	public void Initialize(UnitAction unitAction) {
-		title_text.Value.text = unitAction.ActionName;
+		skillIcons.sprite = unitAction.icon;
 	}
 
 	public void SetListener(Action<bool> onValueChange) {
@@ -26,4 +21,5 @@ public class ActionToggle : MonoBehaviour {
 
 	public void TurnOff() => toggle.isOn = false;
 	public void ResetListeners() => toggle.onValueChanged.RemoveAllListeners();
+
 }

@@ -20,9 +20,9 @@ public class NarrativeGenerator : MonoBehaviour {
 
 	void LoadBanks() {
 		TextAsset[] textFiles = Resources.LoadAll<TextAsset>("NarrativeBank");
-		Debug.Log(textFiles.Length);
+		// Debug.Log(textFiles.Length);
 		foreach (TextAsset textFile in textFiles) {
-			Debug.Log("Parsing file: " + textFile.name);
+			// Debug.Log("Parsing file: " + textFile.name);
 			ParseFile(textFile.text);
 		}
 	}
@@ -42,7 +42,7 @@ public class NarrativeGenerator : MonoBehaviour {
 				string token = line.Substring(1).Trim();
 				if (found) {
 					ruleMap[current.token] = current;
-					Debug.Log("loaded: " + current.token);
+					// Debug.Log("loaded: " + current.token);
 				}
 				found = true;
 				current = new Rule(token);
@@ -51,7 +51,7 @@ public class NarrativeGenerator : MonoBehaviour {
 
 		if (found) {
 			ruleMap[current.token] = current;
-			Debug.Log("loaded: " + current.token);
+			// Debug.Log("loaded: " + current.token);
 		}
 	}
 	string dfs(string rule) {

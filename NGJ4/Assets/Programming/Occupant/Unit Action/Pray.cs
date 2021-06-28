@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[CreateAssetMenu(fileName = "Pray", menuName = "~/Ability/Pray", order = 0)]
 public class Pray : UnitAction {
 	public Pray(int id, string name) : base(id, name) {}
 

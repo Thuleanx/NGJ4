@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[CreateAssetMenu(fileName = "Snipe", menuName = "~/Ability/Snipe", order = 0)]
 public class Snipe : UnitAction {
 	public int range = 4;
 	public int push_distance = 1;
@@ -21,7 +22,7 @@ public class Snipe : UnitAction {
 				Cell other = punit.grid.GetCell(target.x, target.y);
 				if (other.hasOccupant && !(other.Occupant is PlayableUnit)) {
 					cells.Add(other);
-				} else break;
+				} 
 			}
 		}
 

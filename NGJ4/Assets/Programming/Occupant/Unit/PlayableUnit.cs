@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class PlayableUnit : Unit {
 	public int range = 3;
+	public Sprite characterSprite;
 	public CharacterInfo info;
 	List<UnitAction> actions = new List<UnitAction>();
 

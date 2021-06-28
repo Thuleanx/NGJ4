@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[CreateAssetMenu(fileName = "Reposition", menuName = "~/Ability/Reposition", order = 0)]
 public class Reposition : UnitAction {
 	public int range = 1;
 
@@ -20,7 +21,7 @@ public class Reposition : UnitAction {
 				Cell other = punit.grid.GetCell(target.x, target.y);
 				if (other.hasOccupant && (other.Occupant is PlayableUnit)) {
 					cells.Add(other);
-				} else break;
+				} 
 			}
 		}
 

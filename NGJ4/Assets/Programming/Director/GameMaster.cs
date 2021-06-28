@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using Thuleanx;
@@ -20,6 +21,8 @@ public class GameMaster : MonoBehaviour {
 
 	public BubblePool pawn, zealot;
 	public BubblePool moveIndicator, actionIndicator;
+	public UnitMold Soldier;
+
 	// public BubblePool boardBase;
 	// public BubblePool boardBaseAlternative;
 
@@ -32,16 +35,10 @@ public class GameMaster : MonoBehaviour {
 	public void OtherTurn() => StartCoroutine(_OtherTurn());
 
 	public void SpawnTestUnitAt(Vector2Int position) {
-		PlayableUnit unit = new PlayableUnit(position);
-		unit.AddAction(new ShoulderBash(1, "Shoulder Bash"));
-		unit.AddAction(new Reposition(2, "Reposition"));
-		unit.info = CharacterInfo.GenerateCharacter(CharacterClass.Soldier);
-
-		GameObject pawnObj = pawn.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
-		unit.Attach(pawnObj);
-		unit.vision = 4;
-		grid.AddOccupant(unit.position, unit);
-		App.LocalInstance._VisionTracker.AddUnit(unit);
+		PlayableUnit punit = Soldier.Create(position, grid.GetPosCenter(position));
+		grid.AddOccupant(position, punit);
+		App.LocalInstance._VisionTracker.AddUnit(punit);
+		App.LocalInstance._UIManager.SidebarManager.AddUnit(punit);
 	}
 	public void SpawnTestZealotAt(Vector2Int position) {
 		Zealot unit = new Zealot(position);
@@ -81,70 +78,100 @@ public class GameMaster : MonoBehaviour {
 	IEnumerator _PlayerTurn() {
 		mode = MODE.PLAYER_TURN;
 
-		bool selected = false, selected_move = false, action_taken = false;
-		_selected_unit = null;
-		Vector2Int move_to = Vector2Int.zero;
+		List<PlayableUnit> unitSelected = new List<PlayableUnit>();
 
-		// all units becomes selectable
-		foreach (Unit unit in grid.GetAllUnits()) {
-			if ((unit is PlayableUnit) && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) {
-				unit.MakeSelectable(() => {
-					if (selected && _selected_unit == unit) return ;
-					WipeIndicators();
-					_selected_unit = unit; selected = true;
-					foreach (Vector2Int nxt in _selected_unit.GetReachablePositions(grid)) {
-						GameObject indicator = moveIndicator.Borrow(grid.GetPosCenter(nxt), Quaternion.identity);
-						_indicators.Add(indicator);
-						indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
-							selected_move = true;
-							move_to = nxt;
-						});
-					}
-				});
+		int total_units = 0;
+		foreach (Unit unit in grid.GetAllUnits()) total_units += (unit is PlayableUnit && !unit.status.AffectedBy((int) StatusEffectID.STUN)) ? 1 : 0;
+
+		while (unitSelected.Count < total_units) {
+			bool selected = false, selected_move = false, action_taken = false;
+			_selected_unit = null;
+			Vector2Int move_to = Vector2Int.zero;
+
+			Action<Unit> selectUnit =  (unit) => {
+				if (selected && _selected_unit == unit) return;
+				WipeIndicators();
+				_selected_unit = unit; selected = true;
+				App.LocalInstance._UIManager.Portrait.Register(unit as PlayableUnit);
+				foreach (Vector2Int nxt in _selected_unit.GetReachablePositions(grid)) {
+					GameObject indicator = moveIndicator.Borrow(grid.GetPosCenter(nxt), Quaternion.identity);
+					_indicators.Add(indicator);
+					indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
+						selected_move = true;
+						move_to = nxt;
+					});
+				}
+			};
+
+			// all punits becomes selectable
+			foreach (Unit unit in grid.GetAllUnits()) {
+				if ((unit is PlayableUnit) && !unit.status.AffectedBy(((int) StatusEffectID.STUN)) && !unitSelected.Contains(unit as PlayableUnit)) {
+					unit.MakeSelectable(() => selectUnit(unit));
+				}
 			}
-		}
+			foreach (var kvp in App.LocalInstance._UIManager.SidebarManager.sidebars) {
+				PlayableUnit unit = kvp.Key;
+				CharacterSidebar sbar = kvp.Value;
+				if (!unitSelected.Contains(unit as PlayableUnit))
+					sbar.Enable(() => selectUnit(unit));
+			}
 
-		while (!selected) yield return null;
-		while (!selected_move) yield return null;
+			while (!selected) yield return null;
+			while (!selected_move) yield return null;
 
-		App.LocalInstance._Narrator.OnMove(_selected_unit as PlayableUnit,
-			grid.GetCell(_selected_unit.position), 
-			grid.GetCell(move_to));
+			App.LocalInstance._Narrator.OnMove(_selected_unit as PlayableUnit,
+				grid.GetCell(_selected_unit.position), 
+				grid.GetCell(move_to));
 
-		WipeIndicators();
-		foreach (Unit unit in grid.GetAllUnits())
-			if (unit is PlayableUnit && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) 
-				unit.DisableSelectable();
-		grid.MoveOccupant(_selected_unit.position, move_to);
-
-		// now we get to choose an action
-		UnitAction actionChosen = null;
-		Cell action_cell_selected = null;
-
-		App.Instance._UIManager.ActionSelector.StartSelector(_selected_unit as PlayableUnit, (uaction) => {
-			actionChosen = uaction;
-			List<Cell> targets = actionChosen.GetPossibleTargets(_selected_unit as PlayableUnit);
 			WipeIndicators();
-			foreach (Cell cell in targets) {
-				GameObject indicator = actionIndicator.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
-				_indicators.Add(indicator);
-				indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
-					action_taken = true;
-					action_cell_selected = cell;
-					actionChosen.PerformAction(_selected_unit as PlayableUnit, cell);
-				});
+			foreach (Unit unit in grid.GetAllUnits())
+				if (unit is PlayableUnit && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) 
+					unit.DisableSelectable();
+
+			foreach (var kvp in App.LocalInstance._UIManager.SidebarManager.sidebars) {
+				PlayableUnit unit = kvp.Key;
+				CharacterSidebar sbar = kvp.Value;
+				sbar.Disable();
 			}
-		}, () => {
-			action_taken = true;
-		});
 
-		while (!action_taken) yield return null;
-		_selected_unit.status.UpdateStatusEffects();
+			unitSelected.Add(_selected_unit as PlayableUnit);
+			grid.MoveOccupant(_selected_unit.position, move_to);
 
-		App.Instance._UIManager.ActionSelector.StopSelectors();
-		WipeIndicators();
+			// now we get to choose an action
+			UnitAction actionChosen = null;
+			Cell action_cell_selected = null;
 
-		yield return new WaitForSeconds(.5f);
+			App.LocalInstance._UIManager.AbilitySelector.StartSelector(_selected_unit as PlayableUnit, (uaction) => {
+				actionChosen = uaction;
+				List<Cell> targets = actionChosen.GetPossibleTargets(_selected_unit as PlayableUnit);
+				WipeIndicators();
+				foreach (Cell cell in targets) {
+					GameObject indicator = actionIndicator.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
+					_indicators.Add(indicator);
+					indicator.GetComponent<Selectable>()?.MakeSelectable(() => {
+						action_taken = true;
+						action_cell_selected = cell;
+						actionChosen.PerformAction(_selected_unit as PlayableUnit, cell);
+					});
+				}
+			});
+			App.LocalInstance._UIManager.SkipButton.Enable("Skip Action",
+			() => {
+				action_taken = true;
+			} );
+
+			while (!action_taken) yield return null;
+			_selected_unit.status.UpdateStatusEffects();
+
+			App.LocalInstance._UIManager.SkipButton.Disable();
+			App.LocalInstance._UIManager.AbilitySelector.StopSelectors();
+			WipeIndicators();
+			App.LocalInstance._UIManager.Portrait.Disable();
+
+			yield return new WaitForSeconds(.2f);
+		}
+		yield return new WaitForSeconds(.3f);
+
 		
 		OtherTurn();
 	}
