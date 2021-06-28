@@ -31,6 +31,7 @@ public class Snipe : UnitAction {
 	public override void PerformAction(PlayableUnit punit, Cell other) {
 		Vector2Int kbDir = (other.position - punit.position);
 		kbDir /= Mathf.Abs(kbDir.x+kbDir.y);
-		(other.Occupant as Unit).Knockback(kbDir * push_distance);
+		Unit uother = other.Occupant as Unit;
+		uother.Knockback(kbDir * push_distance);
 	}
 }

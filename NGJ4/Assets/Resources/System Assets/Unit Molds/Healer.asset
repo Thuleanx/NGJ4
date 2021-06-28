@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7dbd1391ab5f34ace972661458877007, type: 2}
   - {fileID: 11400000, guid: bd2aded8b324f44fdb78e8aa6bfc4349, type: 2}
   vision_range: 4
+  max_health: 3
   charClass: 1
   CharacterSprite: {fileID: 21300000, guid: d95cf9c5135f94eccb63c01dbb92c699, type: 3}
   AttachedPrefab: {fileID: 1530915842491010548, guid: 92abb27db80c84743ae6970d68714702, type: 3}

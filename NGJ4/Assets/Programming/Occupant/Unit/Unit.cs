@@ -23,11 +23,10 @@ public class Unit : Occupant {
 
 	public virtual void Knockback(Vector2Int kb) {
 		Vector2Int kbDir = kb / (Mathf.Abs(kb.x + kb.y));
-		Vector2Int kbDisplacement = kbDir;
-
-		while (kbDisplacement != kb && grid.InGrid(position + kbDisplacement) && grid.Unoccupied(position + kbDisplacement))
+		Vector2Int kbDisplacement = Vector2Int.zero;
+		while (kbDisplacement != kb && grid.InGrid(position + kbDisplacement + kbDir) && grid.Unoccupied(position + kbDisplacement + kbDir))
 			kbDisplacement += kbDir;
-		grid.MoveOccupant(position, position+kbDisplacement-kbDir);
+		grid.MoveOccupant(position, position+kbDisplacement);
 	}
 
 	public virtual void Die() {
