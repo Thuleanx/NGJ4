@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Reposition : UnitAction {
 	public int range = 1;
 
-	public Reposition(int id, string name) : base(id, name) {}
+	public Reposition(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
 		List<Cell> cells = new List<Cell>();

@@ -93,6 +93,8 @@ public class NarrativeGenerator : MonoBehaviour {
 
 	public void Load(CharacterInfo info) {
 		ruleOverride["charactername"] = info.fullName;
+		ruleOverride["fname"] = info.firstName;
+		ruleOverride["lname"] = info.lastName;
 		ruleOverride["spronoun"] = info.gender.SPronoun();
 		ruleOverride["opronoun"] = info.gender.OPronoun();
 		ruleOverride["ppronoun"] = info.gender.PPronoun();

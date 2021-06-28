@@ -15,7 +15,7 @@ public class PlayableUnit : Unit {
 	public virtual List<UnitAction> GetActions() => actions;
 	public virtual void AddAction(UnitAction action) => actions.Add(action);
 
-	public override List<Vector2Int> GetReachablePositions(Grid grid) {
+	public override List<Vector2Int> GetReachablePositions() {
 		List<Vector2Int> reachablePos = new List<Vector2Int>();
 		Queue<Vector2Int> pq = new Queue<Vector2Int>();
 		pq.Enqueue(position);

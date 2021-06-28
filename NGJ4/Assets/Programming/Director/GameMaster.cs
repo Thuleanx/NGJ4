@@ -21,7 +21,7 @@ public class GameMaster : MonoBehaviour {
 
 	public BubblePool pawn, zealot;
 	public BubblePool moveIndicator, actionIndicator;
-	public UnitMold Soldier;
+	public UnitMold Soldier, Healer, Scout;
 
 	// public BubblePool boardBase;
 	// public BubblePool boardBaseAlternative;
@@ -34,8 +34,22 @@ public class GameMaster : MonoBehaviour {
 	public void PlayerTurn() => StartCoroutine(_PlayerTurn());
 	public void OtherTurn() => StartCoroutine(_OtherTurn());
 
-	public void SpawnTestUnitAt(Vector2Int position) {
-		PlayableUnit punit = Soldier.Create(position, grid.GetPosCenter(position));
+	public void SpawnTestUnitAt(Vector2Int position, CharacterClass charClass) {
+		PlayableUnit punit;
+		switch (charClass) {
+			case CharacterClass.Soldier:
+				punit = Soldier.Create(position, grid.GetPosCenter(position));
+				break;
+			case CharacterClass.Healer:
+				punit = Healer.Create(position, grid.GetPosCenter(position));
+				break;
+			case CharacterClass.Scout:
+				punit = Scout.Create(position, grid.GetPosCenter(position));
+				break;
+			default:
+				punit = Soldier.Create(position, grid.GetPosCenter(position));
+				break;
+		}
 		grid.AddOccupant(position, punit);
 		App.LocalInstance._VisionTracker.AddUnit(punit);
 		App.LocalInstance._UIManager.SidebarManager.AddUnit(punit);
@@ -68,8 +82,10 @@ public class GameMaster : MonoBehaviour {
 		// 	if ((cell.x + cell.y)%2 == 0)	boardBase.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
 		// 	else 							boardBaseAlternative.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
 		// }
-		SpawnTestUnitAt(Vector2Int.zero);
-		SpawnTestUnitAt(new Vector2Int(3, 3));
+		SpawnTestUnitAt(Vector2Int.zero, CharacterClass.Soldier);
+		SpawnTestUnitAt(new Vector2Int(3, 3), CharacterClass.Scout);
+		SpawnTestUnitAt(new Vector2Int(1, 2), CharacterClass.Healer);
+
 		SpawnTestZealotAt(new Vector2Int(7, 7));
 
 		yield return null;
@@ -93,7 +109,7 @@ public class GameMaster : MonoBehaviour {
 				WipeIndicators();
 				_selected_unit = unit; selected = true;
 				App.LocalInstance._UIManager.Portrait.Register(unit as PlayableUnit);
-				foreach (Vector2Int nxt in _selected_unit.GetReachablePositions(grid)) {
+				foreach (Vector2Int nxt in _selected_unit.GetReachablePositions()) {
 					GameObject indicator = moveIndicator.Borrow(grid.GetPosCenter(nxt), Quaternion.identity);
 					_indicators.Add(indicator);
 					indicator.GetComponent<Selectable>()?.MakeSelectable(() => {

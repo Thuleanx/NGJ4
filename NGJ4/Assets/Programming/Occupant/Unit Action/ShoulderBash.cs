@@ -6,7 +6,7 @@ public class ShoulderBash : UnitAction {
 	public int range = 2;
 	public int push_distance = 2;
 
-	public ShoulderBash(int id, string name) : base(id, name) {}
+	public ShoulderBash(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
 		List<Cell> cells = new List<Cell>();

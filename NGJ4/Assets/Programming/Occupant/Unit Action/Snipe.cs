@@ -6,7 +6,7 @@ public class Snipe : UnitAction {
 	public int range = 4;
 	public int push_distance = 1;
 
-	public Snipe(int id, string name) : base(id, name) {}
+	public Snipe(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
 		List<Cell> cells = new List<Cell>();
