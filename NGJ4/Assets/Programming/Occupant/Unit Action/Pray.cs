@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Pray", menuName = "~/Ability/Pray", order = 0)]
 public class Pray : UnitAction {
-	public Pray(int id, string name) : base(id, name) {}
+	public Pray(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
 		return new List<Cell>{punit.grid.GetCell(punit.position.x, 

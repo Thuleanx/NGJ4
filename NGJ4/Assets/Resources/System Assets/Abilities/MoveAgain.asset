@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e308009af98294dbe93a0f7552f33371, type: 3}
-  m_Name: Miner
+  m_Script: {fileID: 11500000, guid: 22f992451a9284795968278fd592be01, type: 3}
+  m_Name: MoveAgain
   m_EditorClassIdentifier: 
-  ActionsList: []
-  vision_range: 4
-  charClass: 3
+  ActionID: 2
+  ActionName: Stride
+  icon: {fileID: 3220426044582381706, guid: beb7b0bfce47048cd8d109e4cbf8feae, type: 3}

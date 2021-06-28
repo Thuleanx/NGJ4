@@ -15,8 +15,10 @@ public class CharacterSidebarManager : MonoBehaviour {
 			rectTransform.anchoredPosition3D = Vector3.zero;
 			rectTransform.localScale = new Vector3(1,1,1);
 		}
+		CharacterSidebar sidebar = SidebarUnit.GetComponentInChildren<CharacterSidebar>();
+		sidebar.AttachUnit(unit);
 		sidebars.Add(new KeyValuePair<PlayableUnit, CharacterSidebar>(
-			unit, SidebarUnit.GetComponentInChildren<CharacterSidebar>()
+			unit, sidebar
 		));
 	}
 }

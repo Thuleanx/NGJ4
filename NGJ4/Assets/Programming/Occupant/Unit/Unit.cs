@@ -14,7 +14,7 @@ public class Unit : Occupant {
 	public Unit(Vector2Int position) : base(position) {
 		status = new Status(1);
 	}
-	public virtual List<Vector2Int> GetReachablePositions(Grid grid) 
+	public virtual List<Vector2Int> GetReachablePositions() 
 		=> new List<Vector2Int>{position};
 	public void MakeSelectable(Action onSelect)
 		=> gameObject.GetComponent<Selectable>().MakeSelectable(onSelect);
@@ -32,4 +32,6 @@ public class Unit : Occupant {
 
 	public virtual void Die() {
 	}
+
+	public bool IsDead() => false;
 }
