@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionName: Pray
   icon: {fileID: 4519937345354205616, guid: beb7b0bfce47048cd8d109e4cbf8feae, type: 3}
+  effect: {fileID: 11400000, guid: 811c8909bbc114e6795b797e83596b7e, type: 2}

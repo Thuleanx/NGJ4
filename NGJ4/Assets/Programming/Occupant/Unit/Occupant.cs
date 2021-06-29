@@ -4,7 +4,7 @@ public class Occupant {
 	public Grid grid;
 
 	public Vector2Int position;
-	protected GameObject gameObject;
+	public GameObject gameObject;
 
 	public Occupant(Vector2Int position) {
 		this.position = position;
@@ -15,6 +15,7 @@ public class Occupant {
 	public Vector2 WorldPosition => gameObject.transform.position; 
 	public virtual void Move(Vector2Int target) {
 		position = target;
-		if (gameObject != null) gameObject.transform.position = grid.GetPosCenter(target);
+		if (gameObject != null)
+			gameObject.transform.position = grid.GetPosCenter(target);
 	}
 }

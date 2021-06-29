@@ -15,8 +15,9 @@ MonoBehaviour:
   ActionsList:
   - {fileID: 11400000, guid: 0bbf2cf4ae4f545f68cf92954f048c8b, type: 2}
   - {fileID: 11400000, guid: b56a3ae0b49dc448999c5197f80fcc6f, type: 2}
-  vision_range: 4
+  vision_range: 3
   max_health: 5
   charClass: 0
+  enemyClass: 0
   CharacterSprite: {fileID: 21300000, guid: e3e4a04e6b64e4b7e82df0311d13a04f, type: 3}
   AttachedPrefab: {fileID: 1530915842491010548, guid: 71e2032d35e4046d981184f5df564446, type: 3}

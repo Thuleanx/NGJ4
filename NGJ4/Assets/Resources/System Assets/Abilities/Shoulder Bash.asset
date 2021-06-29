@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76eb63d6092b94247999fc26c9278c82, type: 3}
   m_Name: Shoulder Bash
   m_EditorClassIdentifier: 
-  ActionID: 0
   ActionName: Bash
   icon: {fileID: 6990236461766413210, guid: beb7b0bfce47048cd8d109e4cbf8feae, type: 3}
-  range: 2
+  range: 1
   push_distance: 2
+  damage: 2
+  effect: {fileID: 11400000, guid: ea93fd92659fc45f3b58ab90fe68104d, type: 2}

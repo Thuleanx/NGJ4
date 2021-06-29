@@ -29,8 +29,20 @@ public class Unit : Occupant {
 		grid.MoveOccupant(position, position+kbDisplacement);
 	}
 
-	public virtual void Die() {
+	public virtual void OnDeath() {}
+	public bool IsDead() => status.Health == 0;
+	public bool CanMove() => !IsDead() && !status.AffectedBy((int) StatusEffectID.STUN);
+
+	public void TakeDamage(Unit other, int damage_amount) {
+		if (!IsDead()) {
+			status.Health -= damage_amount;
+			if (status.Health == 0)
+				OnDeath();
+		}
 	}
 
-	public bool IsDead() => false;
+	public override void Move(Vector2Int target) {
+		position = target;
+		gameObject?.GetComponent<UnitObject>()?.Move(grid.GetPosCenter(target));
+	}
 }

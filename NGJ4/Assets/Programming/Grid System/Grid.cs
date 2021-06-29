@@ -8,6 +8,7 @@ public struct Grid {
 	float cellSize;
 	Vector2 origin;
 	public Cell[,] arr;
+	int[,] cellGroup;
 	List<Occupant> occupants;
 
 	public Vector2 Cell2DSize => new Vector2(cellSize, cellSize);
@@ -23,6 +24,7 @@ public struct Grid {
 		for (int x = 0; x < width; x++)
 			for (int y = 0; y < height; y++)
 				arr[x,y] = new Cell(x,y);
+		cellGroup = new int[width,height];
 	}
 
 	public Cell GetCell(int x, int y) => arr[x,y];
@@ -31,7 +33,6 @@ public struct Grid {
 	public Vector2 GetPosCenter(Vector2Int boardPosition) => boardPosition * Cell2DSize + origin + Cell2DSize/2;
 
 	public static int Approx_Distance(Vector2Int a, Vector2Int b) => Mathf.Abs((a-b).x) + Mathf.Abs((a-b).y);
-
 	public int MoveOccupant(Vector2Int start, Vector2Int end) {
 		if (!arr[start.x, start.y].hasOccupant) return -1;
 		if (arr[end.x,end.y].hasOccupant) return -1;
@@ -44,7 +45,6 @@ public struct Grid {
 
 		return 0;
 	}
-
 	public int SwapOccupant(Vector2Int a, Vector2Int b) {
 		if (!arr[a.x,a.y].hasOccupant) return -1;
 		if (!arr[b.x,b.y].hasOccupant) return -1;
@@ -64,7 +64,6 @@ public struct Grid {
 
 		return 0;
 	}
-
 	public int AddOccupant(Vector2Int pos, Occupant Occupant) {
 		if (arr[pos.x, pos.y].hasOccupant)
 			return -1;
@@ -73,7 +72,14 @@ public struct Grid {
 		occupants.Add(Occupant);
 		return 0;
 	}
+	public int RemoveOccupant(Vector2Int pos) {
+		if (!arr[pos.x, pos.y].hasOccupant) return -1;
 
+		occupants.Remove(arr[pos.x, pos.y].Occupant);
+		arr[pos.x, pos.y].RemoveOccupant();
+
+		return 0;
+	}
 	public List<Occupant> GetAllOccupants() => occupants;
 	public List<Unit> GetAllUnits() {
 		List<Unit> units = new List<Unit>();
@@ -82,11 +88,10 @@ public struct Grid {
 		}
 		return units;
 	}
-
 	public bool InGrid(Vector2Int pos) {
 		return pos.x >= 0 && pos.x < width && pos.y >= 0 && pos.y < height;
 	}
-
+	public bool InGrid(int x, int y) => InGrid(new Vector2Int(x,y));
 	public bool Unoccupied(Vector2Int pos) {
 		return InGrid(pos) && !GetCell(pos.x, pos.y).hasOccupant;
 	}
@@ -148,5 +153,33 @@ public struct Grid {
 		res.reverse();
 
 		return res;
+	}
+
+
+	public int CellGroup(Vector2Int position) => CellGroup(position.x, position.y);
+	public int CellGroup(int x, int y) => cellGroup[x,y];
+	void Fill(int x, int y, int color, bool[,] vis) {
+		int[] dx = {1, -1, 0, 0, 1, -1, 1, -1};
+		int[] dy = {0, 0, 1, -1, 1, 1, -1, -1};
+		vis[x,y] = true;
+		cellGroup[x,y] = color;
+
+		for (int k = 0; k < 8; k++) {
+			int nx = x + dx[k], ny = y + dy[k];
+			if (InGrid(nx, ny) && !vis[nx,ny] && 
+				arr[x,y].biome == arr[nx, ny].biome)
+					Fill(nx,ny,color,vis);
+		}
+	}
+	public void FloodFill() {
+		bool[,] vis = new bool[width, height];
+		for (int x = 0; x < width; x++)
+			for (int y = 0; y < height; y++)
+				vis[x,y] =  false;
+
+		int p = 0;
+		for (int x = 0; x < width; x++)
+			for (int y = 0; y < height; y++)
+				if (!vis[x,y]) Fill(x,y,p++,vis);
 	}
 }

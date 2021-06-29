@@ -179,15 +179,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e116493631b4c369b26d0ac3dc23f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board_width: 32
-  board_height: 32
-  pawn: {fileID: 11400000, guid: d874b719200a44961927b042be722532, type: 2}
-  zealot: {fileID: 11400000, guid: 06632574d6b984eefb1a4c236ce65b0d, type: 2}
+  board_width: 64
+  board_height: 64
   moveIndicator: {fileID: 11400000, guid: 14ef329d535834f26a88aa997a60bc75, type: 2}
   actionIndicator: {fileID: 11400000, guid: f1bfc0e00925e4dd48309ab6083d5208, type: 2}
   Soldier: {fileID: 11400000, guid: ef5c9f4ed69894956a84410d293ebce5, type: 2}
   Healer: {fileID: 11400000, guid: 9183a74091a7c44cea675c67031832ac, type: 2}
   Scout: {fileID: 11400000, guid: 5c1e04b171f71442993ff13c3c9a8456, type: 2}
+  Zealot: {fileID: 11400000, guid: bb95e676e8ae942f985382422ee1feb0, type: 2}
 --- !u!1 &8186443576968301721
 GameObject:
   m_ObjectHideFlags: 0

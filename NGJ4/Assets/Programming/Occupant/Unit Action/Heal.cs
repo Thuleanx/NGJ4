@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Thuleanx.Optimization;
 
 [CreateAssetMenu(fileName = "Heal", menuName = "~/Ability/Heal", order = 0)]
 public class Heal : UnitAction {
 	public int range = 3;
+	public BubblePool effect;
 
 	public Heal(string name) : base(name) {}
 
@@ -19,5 +21,6 @@ public class Heal : UnitAction {
 		// Does nothing
 		PlayableUnit pother = other.Occupant as PlayableUnit;
 		pother.status.Health++;
+		effect?.Borrow(punit.grid.GetPosCenter(other.position), Quaternion.identity);
 	}
 }

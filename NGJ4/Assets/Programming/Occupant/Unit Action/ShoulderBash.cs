@@ -1,10 +1,14 @@
 using UnityEngine;
+using Thuleanx.Optimization;
+using Thuleanx.Math;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ShoulderBash", menuName = "~/Ability/ShoulderBash", order = 0)]
 public class ShoulderBash : UnitAction {
 	public int range = 2;
 	public int push_distance = 2;
+	public int damage = 2;
+	public BubblePool effect;
 
 	public ShoulderBash(string name) : base(name) {}
 
@@ -13,8 +17,6 @@ public class ShoulderBash : UnitAction {
 
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
-
-		Debug.Log(range + " " + push_distance);
 
 		for (int k = 0; k < dx.Length; k++) {
 			for (int z = 1; z <= range; z++) {
@@ -31,9 +33,13 @@ public class ShoulderBash : UnitAction {
 		return cells;
 	}
 	public override void PerformAction(PlayableUnit punit, Cell other) {
+		effect?.Borrow(punit.grid.GetPosCenter(other.position), 
+			Calc.ToQuat(other.position - punit.position));
+
 		Vector2Int kbDir = (other.position - punit.position);
 		kbDir /= Mathf.Abs(kbDir.x+kbDir.y);
 		Unit uother = other.Occupant as Unit;
+		uother.TakeDamage(punit, damage);
 		uother.status.Apply(new StatusEffect((int) StatusEffectID.STUN, 1));
 		uother.Knockback(kbDir * push_distance);
 	}

@@ -8,11 +8,18 @@ public class Narrator : MonoBehaviour {
 
 	[SerializeField] BubblePool textPool;
 
-	public void OnMove(PlayableUnit punit, Cell start, Cell end) {
+	public void OnBiomeMove(PlayableUnit punit, Cell start, Cell end) {
 		App.Instance._NarrativeGenerator.ClearOverrides();
 		App.Instance._NarrativeGenerator.Load(punit.info);
 
-		AddLine(App.Instance._NarrativeGenerator.parse("> #mvb"));
+		if (start.biome.biomeType == end.biome.biomeType && end.biome.biomeType == BiomeType.PLAIN) {
+			// does nothing
+		}  else if (Random.Range(0, 1f) < .2f || end.biome.biomeType == BiomeType.PLAIN) {
+			// out of biome
+			AddLine(App.Instance._NarrativeGenerator.parse("> " + start.biome.biomeType.MoveOut()));
+		} else {
+			AddLine(App.Instance._NarrativeGenerator.parse("> " + end.biome.biomeType.MoveIn()));
+		}
 	}
 
 	void AddLine(string line) {

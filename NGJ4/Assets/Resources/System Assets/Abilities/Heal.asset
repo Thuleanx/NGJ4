@@ -15,3 +15,4 @@ MonoBehaviour:
   ActionName: Heal
   icon: {fileID: -4467272908124371977, guid: beb7b0bfce47048cd8d109e4cbf8feae, type: 3}
   range: 4
+  effect: {fileID: 11400000, guid: 7e54d7fb719d04bf0b88e85ecb3f4de3, type: 2}

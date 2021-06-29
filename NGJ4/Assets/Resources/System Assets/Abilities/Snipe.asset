@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a86c40b7b6a42d2a2f1ecc11755ff4, type: 3}
   m_Name: Snipe
   m_EditorClassIdentifier: 
-  ActionID: 0
   ActionName: Snipe
   icon: {fileID: -8142591483084330622, guid: beb7b0bfce47048cd8d109e4cbf8feae, type: 3}
   range: 4
   push_distance: 1
+  damage: 1
+  effect: {fileID: 11400000, guid: e85f084e0c7c247de96693574730cf91, type: 2}

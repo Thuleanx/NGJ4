@@ -1,10 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Thuleanx.Optimization;
+using Thuleanx.Math;
 
 [CreateAssetMenu(fileName = "Snipe", menuName = "~/Ability/Snipe", order = 0)]
 public class Snipe : UnitAction {
 	public int range = 4;
 	public int push_distance = 1;
+	public int damage = 1;
+	public BubblePool effect;
 
 	public Snipe(string name) : base(name) {}
 
@@ -29,9 +33,12 @@ public class Snipe : UnitAction {
 		return cells;
 	}
 	public override void PerformAction(PlayableUnit punit, Cell other) {
+		effect?.Borrow(punit.grid.GetPosCenter(other.position), 
+			Calc.ToQuat(other.position - punit.position));
 		Vector2Int kbDir = (other.position - punit.position);
 		kbDir /= Mathf.Abs(kbDir.x+kbDir.y);
 		Unit uother = other.Occupant as Unit;
+		uother.TakeDamage(punit, damage);
 		uother.Knockback(kbDir * push_distance);
 	}
 }
