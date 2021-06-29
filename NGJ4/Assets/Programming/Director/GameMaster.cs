@@ -19,9 +19,11 @@ public class GameMaster : MonoBehaviour {
 
 	public int board_width = 8, board_height = 8;
 
-	public BubblePool pawn, zealot;
 	public BubblePool moveIndicator, actionIndicator;
-	public UnitMold Soldier, Healer, Scout;
+	public UnitMold Soldier, Healer, Scout, Zealot;
+
+	Dictionary<PlayableUnit, HashSet<int>> AreaVisited =
+		new Dictionary<PlayableUnit, HashSet<int>>();
 
 	// public BubblePool boardBase;
 	// public BubblePool boardBaseAlternative;
@@ -53,13 +55,11 @@ public class GameMaster : MonoBehaviour {
 		grid.AddOccupant(position, punit);
 		App.LocalInstance._VisionTracker.AddUnit(punit);
 		App.LocalInstance._UIManager.SidebarManager.AddUnit(punit);
+		AreaVisited[punit] = new HashSet<int>();
 	}
 	public void SpawnTestZealotAt(Vector2Int position) {
-		Zealot unit = new Zealot(position);
-		GameObject pawnObj = zealot.Borrow(grid.GetPosCenter(unit.position), Quaternion.identity);
-		unit.range = 2;
-		unit.Attach(pawnObj);
-		grid.AddOccupant(unit.position, unit);
+		AIUnit aunit = Zealot.Create_E(position, grid.GetPosCenter(position));
+		grid.AddOccupant(position, aunit);
 	}
 
 	#region Player Turn Variables
@@ -72,16 +72,32 @@ public class GameMaster : MonoBehaviour {
 		_indicators.Clear();
 	}
 
+	public void LoadBiomes() {
+		foreach (BiomeLabel biomeLabel in FindObjectsOfType<BiomeLabel>()) {
+			Vector2Int position = grid.WorldToGridPosition(
+				biomeLabel.transform.position);
+			Cell cell = grid.GetCell(position);
+			cell.biome = biomeLabel.biome;
+		}
+		grid.FloodFill();
+	}
+	public void LoadObstacles() {
+		foreach (ObstacleObject obstacle in FindObjectsOfType<ObstacleObject>()) {
+			Vector2Int position = grid.WorldToGridPosition(obstacle.transform.position);
+			grid.AddOccupant(
+				position,obstacle.Create(position));
+		}
+	}
+
 	IEnumerator _StartGame() {
 		mode = MODE.BEGIN;
+		yield return new WaitForEndOfFrame();
 
 		// construct the grid logically
 		grid = new Grid(board_width, board_height, transform.position, 1f);
-		// // instantiating the grid 
-		// foreach (Cell cell in grid.arr) {
-		// 	if ((cell.x + cell.y)%2 == 0)	boardBase.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
-		// 	else 							boardBaseAlternative.Borrow(grid.GetPosCenter(cell.position), Quaternion.identity);
-		// }
+		LoadBiomes();
+		LoadObstacles();
+
 		SpawnTestUnitAt(Vector2Int.zero, CharacterClass.Soldier);
 		SpawnTestUnitAt(new Vector2Int(3, 3), CharacterClass.Scout);
 		SpawnTestUnitAt(new Vector2Int(1, 2), CharacterClass.Healer);
@@ -91,13 +107,14 @@ public class GameMaster : MonoBehaviour {
 		yield return null;
 		PlayerTurn();
 	}
+
 	IEnumerator _PlayerTurn() {
 		mode = MODE.PLAYER_TURN;
 
 		List<PlayableUnit> unitSelected = new List<PlayableUnit>();
 
 		int total_units = 0;
-		foreach (Unit unit in grid.GetAllUnits()) total_units += (unit is PlayableUnit && !unit.status.AffectedBy((int) StatusEffectID.STUN)) ? 1 : 0;
+		foreach (Unit unit in grid.GetAllUnits()) total_units += (unit is PlayableUnit && unit.CanMove()) ? 1 : 0;
 
 		while (unitSelected.Count < total_units) {
 			bool selected = false, selected_move = false, action_taken = false;
@@ -105,6 +122,7 @@ public class GameMaster : MonoBehaviour {
 			Vector2Int move_to = Vector2Int.zero;
 
 			Action<Unit> selectUnit =  (unit) => {
+				App.LocalInstance._Camera.FollowUnit(unit);
 				if (selected && _selected_unit == unit) return;
 				WipeIndicators();
 				_selected_unit = unit; selected = true;
@@ -121,7 +139,7 @@ public class GameMaster : MonoBehaviour {
 
 			// all punits becomes selectable
 			foreach (Unit unit in grid.GetAllUnits()) {
-				if ((unit is PlayableUnit) && !unit.status.AffectedBy(((int) StatusEffectID.STUN)) && !unitSelected.Contains(unit as PlayableUnit)) {
+				if ((unit is PlayableUnit) && unit.CanMove() && !unitSelected.Contains(unit as PlayableUnit)) {
 					unit.MakeSelectable(() => selectUnit(unit));
 				}
 			}
@@ -135,13 +153,20 @@ public class GameMaster : MonoBehaviour {
 			while (!selected) yield return null;
 			while (!selected_move) yield return null;
 
-			App.LocalInstance._Narrator.OnMove(_selected_unit as PlayableUnit,
-				grid.GetCell(_selected_unit.position), 
-				grid.GetCell(move_to));
+			int biomeCurrent = grid.CellGroup(_selected_unit.position);
+			int biomeNxt = grid.CellGroup(move_to);
+			Debug.Log(biomeCurrent + " " + biomeNxt);
+
+			if (biomeNxt != biomeCurrent && !AreaVisited[_selected_unit as PlayableUnit].Contains(biomeNxt)) {
+				App.LocalInstance._Narrator.OnBiomeMove(_selected_unit as PlayableUnit,
+					grid.GetCell(_selected_unit.position), 
+					grid.GetCell(move_to));
+				AreaVisited[_selected_unit as PlayableUnit].Add(biomeNxt);
+			}
 
 			WipeIndicators();
 			foreach (Unit unit in grid.GetAllUnits())
-				if (unit is PlayableUnit && !unit.status.AffectedBy(((int) StatusEffectID.STUN))) 
+				if (unit is PlayableUnit && unit.CanMove()) 
 					unit.DisableSelectable();
 
 			foreach (var kvp in App.LocalInstance._UIManager.SidebarManager.sidebars) {
@@ -196,7 +221,7 @@ public class GameMaster : MonoBehaviour {
 
 		foreach (Unit unit in grid.GetAllUnits()) {
 			if (unit is AIUnit) {
-				if (!unit.status.AffectedBy((int) StatusEffectID.STUN))
+				if (unit.CanMove())
 					grid.MoveOccupant(unit.position, (unit as AIUnit).DecideMove(grid));
 				unit.status.UpdateStatusEffects();
 			}

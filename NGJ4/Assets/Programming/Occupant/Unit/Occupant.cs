@@ -4,7 +4,7 @@ public class Occupant {
 	public Grid grid;
 
 	public Vector2Int position;
-	protected GameObject gameObject;
+	public GameObject gameObject;
 
 	public Occupant(Vector2Int position) {
 		this.position = position;

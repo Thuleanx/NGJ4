@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Snipe : UnitAction {
 	public int range = 4;
 	public int push_distance = 1;
+	public int damage = 1;
 
 	public Snipe(string name) : base(name) {}
 
@@ -32,6 +33,7 @@ public class Snipe : UnitAction {
 		Vector2Int kbDir = (other.position - punit.position);
 		kbDir /= Mathf.Abs(kbDir.x+kbDir.y);
 		Unit uother = other.Occupant as Unit;
+		uother.TakeDamage(punit, damage);
 		uother.Knockback(kbDir * push_distance);
 	}
 }

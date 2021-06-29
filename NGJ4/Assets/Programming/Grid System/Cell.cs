@@ -6,6 +6,7 @@ public class Cell {
 	public Vector2Int position;
 	Occupant occupant;
 	public List<TemporaryTerrain> Terrains = new List<TemporaryTerrain>();
+	public Biome biome;
 
 	public Occupant Occupant {
 		get { return occupant; }

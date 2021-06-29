@@ -8,6 +8,7 @@ public class UnitMold : ScriptableObject {
 	public int vision_range = 4;
 	public int max_health = 4;
 	public CharacterClass charClass;
+	public EnemyClass enemyClass;
 	public Sprite CharacterSprite;
 	public GameObject AttachedPrefab;
 
@@ -16,6 +17,22 @@ public class UnitMold : ScriptableObject {
 		foreach (UnitAction uaction in ActionsList)
 			unit.AddAction(uaction);
 		unit.info = CharacterInfo.GenerateCharacter(charClass);
+		unit.vision = vision_range;
+		unit.characterSprite = CharacterSprite;
+		unit.status.MaxHealth = max_health;
+		unit.status.Health = max_health;
+
+		GameObject unitObj = Instantiate(AttachedPrefab, 
+			worldPos, Quaternion.identity);
+		unit.Attach(unitObj);
+		UnitObject objComponent = unitObj.GetComponent<UnitObject>();
+		objComponent.AttachUnit(unit);
+		return unit;
+	}
+
+	public AIUnit Create_E(Vector2Int position, Vector2 worldPos) {
+		WalkTowardsPawns unit = new WalkTowardsPawns(position);
+		unit.info = EnemyInfo.GenerateEnemy(enemyClass);
 		unit.vision = vision_range;
 		unit.characterSprite = CharacterSprite;
 		unit.status.MaxHealth = max_health;
