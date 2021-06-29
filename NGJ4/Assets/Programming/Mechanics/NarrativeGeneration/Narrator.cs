@@ -12,7 +12,9 @@ public class Narrator : MonoBehaviour {
 		App.Instance._NarrativeGenerator.ClearOverrides();
 		App.Instance._NarrativeGenerator.Load(punit.info);
 
-		if (Random.Range(0, 1f) < .2f) {
+		if (start.biome.biomeType == end.biome.biomeType && end.biome.biomeType == BiomeType.PLAIN) {
+			// does nothing
+		}  else if (Random.Range(0, 1f) < .2f || end.biome.biomeType == BiomeType.PLAIN) {
 			// out of biome
 			AddLine(App.Instance._NarrativeGenerator.parse("> " + start.biome.biomeType.MoveOut()));
 		} else {

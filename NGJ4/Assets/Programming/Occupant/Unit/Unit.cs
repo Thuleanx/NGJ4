@@ -40,4 +40,9 @@ public class Unit : Occupant {
 				OnDeath();
 		}
 	}
+
+	public override void Move(Vector2Int target) {
+		position = target;
+		gameObject?.GetComponent<UnitObject>()?.Move(grid.GetPosCenter(target));
+	}
 }

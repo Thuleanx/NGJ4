@@ -102,7 +102,7 @@ public class GameMaster : MonoBehaviour {
 		SpawnTestUnitAt(new Vector2Int(3, 3), CharacterClass.Scout);
 		SpawnTestUnitAt(new Vector2Int(1, 2), CharacterClass.Healer);
 
-		SpawnTestZealotAt(new Vector2Int(7, 7));
+		SpawnTestZealotAt(new Vector2Int(6, 6));
 
 		yield return null;
 		PlayerTurn();

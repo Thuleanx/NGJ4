@@ -10,6 +10,6 @@ public class AIUnit : Unit {
 
 	public override void OnDeath() {
 		grid.RemoveOccupant(position);
-		gameObject.SetActive(false);
+		gameObject.GetComponent<UnitObject>().OnDeath();
 	}
 }

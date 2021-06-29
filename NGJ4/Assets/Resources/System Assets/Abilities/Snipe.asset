@@ -17,3 +17,4 @@ MonoBehaviour:
   range: 4
   push_distance: 1
   damage: 1
+  effect: {fileID: 11400000, guid: e85f084e0c7c247de96693574730cf91, type: 2}

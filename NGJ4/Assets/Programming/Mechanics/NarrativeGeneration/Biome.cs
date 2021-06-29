@@ -23,9 +23,9 @@ public static class Biome_Extensions {
 			"#mvf1",
 			"#mvr1", 
 			"#mvt1",
-			"#mvs1",
+			"#mvzs1",
 			"#mvm1",
-			"#mvb",
+			"...",
 		})[(int) biomeType];
 
 	public static string MoveOut(this BiomeType biomeType) =>
@@ -33,8 +33,8 @@ public static class Biome_Extensions {
 			"#mvf2",
 			"#mvr2", 
 			"#mvt2",
-			"#mvs2",
+			"#mvzs2",
 			"#mvm2",
-			"#mvb",
+			"...",
 		})[(int) biomeType];
 }

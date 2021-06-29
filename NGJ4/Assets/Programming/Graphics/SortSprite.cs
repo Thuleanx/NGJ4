@@ -9,7 +9,11 @@ public class SortSprite : MonoBehaviour {
 		SortingGroup group = GetComponent<SortingGroup>();
 		if (group)
 			group.sortingOrder = order;
-		else foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
+		else {
+			foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
 				renderer.sortingOrder = order;
+			foreach (ParticleSystem system in GetComponentsInChildren<ParticleSystem>()) {
+			}
+		}
 	}
 }
