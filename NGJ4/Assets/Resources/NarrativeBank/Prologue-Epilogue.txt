@@ -2,12 +2,14 @@
 
 
 +prlg
-Come, and hear a tale of #charactername , #charactername , #charactername , and #charactername . Four brave people sent to the heart of my crater, my Lokthlokh, with the promise of riches. The meteorite, in their sniveling, cowering, world, supplies all their energy, supplies their society with a techological prowess beyond anything their puny minds could have considered before I came, before Lokthlokh. So stay, and watch as yet another band attempt what so few can...to steal from me.
+Come, and hear a tale of #charactername1 , #charactername2 , and #charactername3 . %%Three brave people sent to the heart of my crater, my Lokthlokh, with the promise of riches.%% The meteorite, in their sniveling, cowering, world, supplies all their energy, supplies their society with a techological prowess beyond anything their puny minds could have considered before I came, before Lokthlokh.%% So stay, and watch as yet another band attempt what so few can...to steal from me.
 
 +eplg1
-The #eldritchadj vermin escaped with a paltry few, but at what cost? Of course, they can buy a life worth more, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
+The #eldritchadj vermins escaped with a paltry few, but at what cost? %%Of course, they can buy a life worth more, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
 +eplg2
-The #eldritchadj vermin escaped with a sizeable amount of my Lokthlokh, but at what cost? Of course, they can buy a life worth more, perhaps purchase themselves from indentured servitude, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
+The #eldritchadj vermins escaped with a sizeable amount of my Lokthlokh, but at what cost? %%Of course, they can buy a life worth more, perhaps purchase themselves from indentured servitude, but the terrors that will haunt them, my beautiful terrors...will ultimately spell victory for me.
 +eplg3
-The #eldritchadj vermin escaped with far too much of my Lokthlokh. I am...enraged. But, so long as I live, the Lokthlokh will live, and if I ever see one of their pallid, sallow faces again.
-... How could I have been foiled? I can see in their minds. I see #fname 's daughter put down to rest in a crib made of ribcage. I can see #fname 's yellow dinner table glow. #spronoun sit among guests, laughing. But #fname doesn't. #spronoun stares at his #eldritchadj meal, grub, rations. #spronoun 's eyes are glazed, fearful. This species is weak, corruptable.
+The #eldritchadj vermins escaped with far too much of my Lokthlokh.%%I am...enraged.%$ But, so long as I live, the Lokthlokh will live, and if I ever see one of their pallid, sallow faces again.
+... How could I have been foiled? I can see in their minds. %%I see #fname1 's daughter put down to rest in a crib made of ribcage. I can see #fname2 's yellow dinner table glow. #spronoun2 sit among guests, laughing. But #fname3 doesn't. #spronoun3 stares at his #eldritchadj meal, grub, rations. #spronoun3 's eyes are glazed, fearful. This species is weak, corruptable.
++eplg4
+As is what happens with most who enter my Lokthlokh, #fname1 , #fname2 , and #fname3 perished. Good riddance.

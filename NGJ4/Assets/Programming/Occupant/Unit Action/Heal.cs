@@ -7,6 +7,7 @@ using Thuleanx;
 public class Heal : UnitAction {
 	public int range = 3;
 	public BubblePool effect;
+	[SerializeField, FMODUnity.EventRef] string SFX;
 
 	public Heal(string name) : base(name) {}
 
@@ -25,5 +26,6 @@ public class Heal : UnitAction {
 		effect?.Borrow(punit.grid.GetPosCenter(other.position), Quaternion.identity);
 
 		App.LocalInstance._Narrator.OnHeal(punit, pother);
+		App.Instance._AudioManager.PlayOneShot(SFX);
 	}
 }

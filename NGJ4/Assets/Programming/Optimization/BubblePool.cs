@@ -71,12 +71,13 @@ namespace Thuleanx.Optimization {
 
 		public void Collects(Bubble bubble) {
 			// Sus code
-			bubble.transform.SetParent(null);
-			if (bubble.gameObject.activeSelf)
+			if (bubble.gameObject.activeSelf) {
+				bubble.transform.SetParent(null);
 				bubble.gameObject.SetActive(false);
-			bubblePool.Enqueue(bubble);
-			DontDestroyOnLoad(bubble.gameObject);
-			bubble.inPool =true;
+				bubblePool.Enqueue(bubble);
+				DontDestroyOnLoad(bubble.gameObject);
+				bubble.inPool = true;
+			}
 		}
 
 		

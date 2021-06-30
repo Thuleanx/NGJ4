@@ -91,6 +91,9 @@ MonoBehaviour:
   health_text: {fileID: 3467240305830405349}
   LandCombo: {fileID: 5890923846993205567}
   DeathCombo: {fileID: 11400000, guid: 04a06dc9f8f7c474588578436623a791, type: 2}
+  moveRef: event:/SFX/Move
+  deadRef: event:/SFX/Dead
+  attackRef: 
 --- !u!1 &2173832591960046565
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +372,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -382013149
-  m_SortingOrder: 0
+  m_SortingLayerID: 1906213535
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &7075896949368598924
 MonoBehaviour:

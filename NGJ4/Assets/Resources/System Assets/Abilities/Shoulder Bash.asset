@@ -18,3 +18,4 @@ MonoBehaviour:
   push_distance: 2
   damage: 2
   effect: {fileID: 11400000, guid: ea93fd92659fc45f3b58ab90fe68104d, type: 2}
+  SFX: event:/SFX/Ability/Shoulder Bash

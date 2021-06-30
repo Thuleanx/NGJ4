@@ -5,6 +5,8 @@ public class LocalApp : MonoBehaviour {
 	public Narrator _Narrator;
 	public LocalUIManager _UIManager;
 	public CameraFollowUnit _Camera;
+	public ProEndLog _Log;
+	public ContinueButton _ContinueButton;
 
 	private void Awake() {
 		if (_VisionTracker == null) 
@@ -15,6 +17,8 @@ public class LocalApp : MonoBehaviour {
 			_UIManager = GetComponentInChildren<LocalUIManager>();
 		if (_Camera == null) 
 			_Camera = GetComponentInChildren<CameraFollowUnit>();
+		if (_Log == null) 
+			_Log = GetComponentInChildren<ProEndLog>();
 
 	}
 }

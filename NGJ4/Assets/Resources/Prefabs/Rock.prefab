@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectEffect: {fileID: 11400000, guid: 2b9f23385730f4a73971ba102609839a, type: 2}
+  collectSound: event:/SFX/Collect
 --- !u!1 &4350654339221473776
 GameObject:
   m_ObjectHideFlags: 0

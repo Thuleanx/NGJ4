@@ -195,4 +195,6 @@ public struct Grid {
 	public void RemoveTerrain(TemporaryTerrain terrain, Vector2Int position) {
 		arr[position.x, position.y].RemoveTemporaryTerrain(terrain);
 	}
+
+	public bool Free(Vector2Int pos) => InGrid(pos) && !arr[pos.x,pos.y].hasOccupant && arr[pos.x,pos.y].Terrains.Count == 0;
 }

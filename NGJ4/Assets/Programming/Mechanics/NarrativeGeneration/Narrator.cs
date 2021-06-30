@@ -7,7 +7,24 @@ public class Narrator : MonoBehaviour {
 	public GameObject parchment;
 
 	[SerializeField] BubblePool textPool;
+	[SerializeField, FMODUnity.EventRef] string writingEvent;
 	public float AbilityFrequency = 1/15f;
+
+	public void OnStart(PlayableUnit p1, PlayableUnit p2, PlayableUnit p3) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		App.Instance._NarrativeGenerator.Load(p1, p2, p3);
+
+		App.LocalInstance._Log.SetText(App.Instance.
+			_NarrativeGenerator.parse("#prlg"));
+	}
+
+	public void OnEnd(PlayableUnit p1, PlayableUnit p2, PlayableUnit p3, int VERSION) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		App.Instance._NarrativeGenerator.Load(p1, p2, p3);
+
+		App.LocalInstance._Log.SetText(App.Instance.
+			_NarrativeGenerator.parse("#eplg" + VERSION));
+	}
 
 	public void OnBiomeMove(PlayableUnit punit, Cell start, Cell end) {
 		App.Instance._NarrativeGenerator.ClearOverrides();
@@ -39,6 +56,9 @@ public class Narrator : MonoBehaviour {
 
 			string prompt = (target as AIUnit).info.enemyType.DeathNarrative(cell.biome.biomeType);
 			AddLine(App.Instance._NarrativeGenerator.parse("> " + prompt));
+		} else {
+			App.Instance._NarrativeGenerator.Load((target as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #cdc"));
 		}
 	}
 
@@ -71,6 +91,7 @@ public class Narrator : MonoBehaviour {
 	public void OnShot(Unit person, Unit target) {
 		if (Random.Range(0, 1f) < AbilityFrequency) {
 			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			App.Instance._NarrativeGenerator.Load((target as AIUnit).info);
 			AddLine(App.Instance._NarrativeGenerator.parse("> #rtu1"));
 		}
 	}
@@ -98,6 +119,8 @@ public class Narrator : MonoBehaviour {
 			rectTransform.localScale = new Vector3(1, 1, 1);
 			rectTransform.anchoredPosition3D = new Vector3(0, 0, 0);
 		}
+
+		App.Instance._AudioManager.PlayOneShot(writingEvent);
 
 	}
 }

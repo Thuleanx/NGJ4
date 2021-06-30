@@ -11,6 +11,8 @@ public class Snipe : UnitAction {
 	public int damage = 1;
 	public BubblePool effect;
 
+	[SerializeField, FMODUnity.EventRef] string SFX;
+
 	public Snipe(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
@@ -43,5 +45,6 @@ public class Snipe : UnitAction {
 		uother.Knockback(kbDir * push_distance);
 
 		App.LocalInstance._Narrator.OnShot(punit, uother);
+		App.Instance._AudioManager.PlayOneShot(SFX);
 	}
 }

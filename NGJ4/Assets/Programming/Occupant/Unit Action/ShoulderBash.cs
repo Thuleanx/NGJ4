@@ -11,6 +11,8 @@ public class ShoulderBash : UnitAction {
 	public int damage = 2;
 	public BubblePool effect;
 
+	[SerializeField, FMODUnity.EventRef] string SFX;
+
 	public ShoulderBash(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
@@ -44,6 +46,7 @@ public class ShoulderBash : UnitAction {
 		uother.status.Apply(new StatusEffect((int) StatusEffectID.STUN, 1));
 		uother.Knockback(kbDir * push_distance);
 
+		App.Instance._AudioManager.PlayOneShot(SFX);
 		App.LocalInstance._Narrator.OnShoulderBash(punit, uother);
 	}
 }

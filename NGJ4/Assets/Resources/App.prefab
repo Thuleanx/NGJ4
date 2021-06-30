@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &395936808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395936809}
+  - component: {fileID: 395936810}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &395936809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395936808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8186443576679714620}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &395936810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395936808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d5abc83ff3149cb941b35d9fd67c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &718828795
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +192,7 @@ Transform:
   - {fileID: 8186443576968301718}
   - {fileID: 8403051635732328285}
   - {fileID: 718828796}
+  - {fileID: 395936809}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,6 +211,7 @@ MonoBehaviour:
   _InputManager: {fileID: 8186443576968301719}
   _NarrativeGenerator: {fileID: 718828797}
   _GameMaster: {fileID: -3288575203230642665}
+  _AudioManager: {fileID: 395936810}
   activePools: []
 --- !u!114 &-3288575203230642665
 MonoBehaviour:
@@ -191,6 +236,9 @@ MonoBehaviour:
   Zealot: {fileID: 11400000, guid: bb95e676e8ae942f985382422ee1feb0, type: 2}
   Scavenger: {fileID: 11400000, guid: 3dfc05b8e85b64fd1b14b89bb9e0430b, type: 2}
   Corrupted: {fileID: 11400000, guid: 2b0852d09d4c14f2483022b677645ae4, type: 2}
+  TimeLimit: 28
+  bellRef: event:/SFX/Bell
+  musicRef: event:/Music/Background
   RocksGathered: 0
   GameTime: 0
 --- !u!1 &8186443576968301721

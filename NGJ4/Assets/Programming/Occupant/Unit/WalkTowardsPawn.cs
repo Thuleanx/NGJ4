@@ -56,6 +56,7 @@ public class WalkTowardsPawns : AIUnit {
 			effect?.Borrow(grid.GetPosCenter(pawn.position), 
 				Calc.ToQuat(pawn.position - position));
 			pawn.TakeDamage(this, attack_damage);
+			gameObject.GetComponent<UnitObject>().OnAttack();
 			return true;
 		}
 		return false;

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;	
 using Thuleanx.Optimization;
+using FMOD_Thuleanx;
 
 namespace Thuleanx {
 	public class App : MonoBehaviour {
@@ -14,6 +15,7 @@ namespace Thuleanx {
 		public InputManager _InputManager;
 		public NarrativeGenerator _NarrativeGenerator;
 		public GameMaster _GameMaster;
+		public AudioManager _AudioManager;
 
 		[HideInInspector]
 		public List<BubblePool> activePools = new List<BubblePool>();

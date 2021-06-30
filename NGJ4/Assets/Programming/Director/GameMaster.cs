@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Thuleanx;
 using Thuleanx.Optimization;
+using UnityEngine.SceneManagement;
 
 enum MODE {
 	BEGIN,
@@ -24,8 +25,14 @@ public class GameMaster : MonoBehaviour {
 
 	public int TimeLimit = 28;
 
+	public int SceneAfterEnd = 0;
+
 	Dictionary<PlayableUnit, HashSet<int>> AreaVisited =
 		new Dictionary<PlayableUnit, HashSet<int>>();
+
+	[SerializeField, FMODUnity.EventRef] string bellRef;
+	[SerializeField, FMODUnity.EventRef] string musicRef;
+	[SerializeField, FMODUnity.EventRef] string narratorRef;
 
 	[HideInInspector]
 	public int RocksGathered;
@@ -36,14 +43,15 @@ public class GameMaster : MonoBehaviour {
 	// public BubblePool boardBaseAlternative;
 
 	void Start() {
-		StartGame();
+		// StartGame();
 	}
 
 	public void StartGame() => StartCoroutine(_StartGame());
 	public void PlayerTurn() => StartCoroutine(_PlayerTurn());
 	public void OtherTurn() => StartCoroutine(_OtherTurn());
+	public void EndGame() => StartCoroutine(_EndGame());
 
-	public void SpawnTestUnitAt(Vector2Int position, CharacterClass charClass) {
+	public PlayableUnit SpawnTestUnitAt(Vector2Int position, CharacterClass charClass) {
 		PlayableUnit punit;
 		switch (charClass) {
 			case CharacterClass.Soldier:
@@ -60,9 +68,9 @@ public class GameMaster : MonoBehaviour {
 				break;
 		}
 		grid.AddOccupant(position, punit);
-		App.LocalInstance._VisionTracker.AddUnit(punit);
 		App.LocalInstance._UIManager.SidebarManager.AddUnit(punit);
 		AreaVisited[punit] = new HashSet<int>();
+		return punit;
 	}
 	public void SpawnTestZealotAt(Vector2Int position) {
 		AIUnit aunit = Zealot.Create_E(position, grid.GetPosCenter(position));
@@ -136,9 +144,54 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
+	public bool AllDead() {
+		foreach (Unit unit in grid.GetAllUnits()) if (unit is PlayableUnit && !unit.IsDead())
+			return false;
+		return true;
+	}
+
+	bool ContinueButtonPressed = false;
+	public void Continue() => ContinueButtonPressed = true;
+
+	public void SpawnUnits(ref PlayableUnit p1, ref PlayableUnit p2, ref PlayableUnit p3) {
+		SpawnPoint[] points = FindObjectsOfType<SpawnPoint>();
+		SpawnPoint location = points[UnityEngine.Random.Range(0, points.Length - 1)];
+
+		Vector2Int exactLocation = grid.WorldToGridPosition(location.transform.position);
+
+		Vector2Int[] pos = new Vector2Int[3];
+
+		for (int k = 0; k < 3; k++) {
+			bool found = false;
+			for (int d = 0; !found; d++) {
+				for (int dx = -d; dx <= d; dx++) {
+					for (int dy = -d; dy <= d; dy++) {
+						if (Mathf.Abs(dx) + Mathf.Abs(dy) == d) {
+							Vector2Int potentialPos = exactLocation + new Vector2Int(dx,dy);
+
+							if (grid.Free(potentialPos)) {
+								pos[k] = potentialPos;
+								found = true;
+							}
+						}
+					}
+				}
+			}
+			if (k == 0) {
+				p1 = SpawnTestUnitAt(pos[0],CharacterClass.Healer);
+			} else if (k == 1) {
+				p2 = SpawnTestUnitAt(pos[1],CharacterClass.Scout);
+			} else {
+				p3 = SpawnTestUnitAt(pos[2],CharacterClass.Soldier);
+			}
+		}
+
+	}
+
 	IEnumerator _StartGame() {
 		mode = MODE.BEGIN;
 		yield return new WaitForEndOfFrame();
+		yield return new WaitForSeconds(3);
 
 		App.LocalInstance._UIManager.SetInvisible();
 
@@ -152,13 +205,34 @@ public class GameMaster : MonoBehaviour {
 		PopulateRocks();
 		SpawnEnemies();
 
-		SpawnTestUnitAt(Vector2Int.zero, CharacterClass.Soldier);
-		SpawnTestUnitAt(new Vector2Int(3, 3), CharacterClass.Scout);
-		SpawnTestUnitAt(new Vector2Int(1, 2), CharacterClass.Healer);
+		PlayableUnit punit1 = null, punit2 = null, punit3 = null;
+		SpawnUnits(ref punit1, ref punit2, ref punit3);
+		Debug.Log(punit1);
+		Debug.Log(punit2);
+		Debug.Log(punit3);
 
-		SpawnTestZealotAt(new Vector2Int(6, 6));
+		// Narrator does his thing
+		App.Instance._AudioManager.PlayOneShot(narratorRef);
+		App.LocalInstance._Narrator.OnStart(punit1, punit2, punit3);
+		App.Instance._AudioManager.SetMainTrack(new FMOD_Thuleanx.AudioTrack(musicRef));
+		App.Instance._AudioManager.PlayMainTrack();
+
+		ContinueButtonPressed = false;
+		App.LocalInstance._ContinueButton.Enable("Start Game");
+		while (!ContinueButtonPressed)
+			yield return null;
+		App.LocalInstance._ContinueButton.Disable();
+
+		App.LocalInstance._Log.Clear();
+
+		App.LocalInstance._VisionTracker.AddUnit(punit1);
+		App.LocalInstance._VisionTracker.AddUnit(punit2);
+		App.LocalInstance._VisionTracker.AddUnit(punit3);
+
+		// SpawnTestZealotAt(new Vector2Int(6, 6));
 
 		App.LocalInstance._UIManager.SetVisible();
+		App.Instance._AudioManager.PlayOneShot(bellRef);
 
 		yield return null;
 		PlayerTurn();
@@ -198,6 +272,7 @@ public class GameMaster : MonoBehaviour {
 			// all punits becomes selectable
 			foreach (Unit unit in grid.GetAllUnits()) {
 				if ((unit is PlayableUnit) && unit.CanMove() && !unitSelected.Contains(unit as PlayableUnit)) {
+					App.LocalInstance._Camera.FollowUnit(unit);
 					unit.MakeSelectable(() => selectUnit(unit));
 				}
 			}
@@ -282,9 +357,9 @@ public class GameMaster : MonoBehaviour {
 		foreach (Unit unit in grid.GetAllUnits()) {
 			if (unit is AIUnit) {
 				if (unit.CanMove()) {
-					App.LocalInstance._Camera.FollowUnit(unit);
 					Vector2Int nxt = (unit as AIUnit).DecideMove(grid);
 					if (nxt != unit.position) {
+						App.LocalInstance._Camera.FollowUnit(unit);
 						grid.MoveOccupant(unit.position, nxt);
 						yield return new WaitForSeconds(.2f);
 					}
@@ -294,14 +369,45 @@ public class GameMaster : MonoBehaviour {
 				}
 				unit.status.UpdateStatusEffects();
 			}
-				
 		}
 		yield return null;
 
 		yield return new WaitForSeconds(.5f);
-		if (++GameTime == TimeLimit) {
-		}
 
-		PlayerTurn();
+		if (++GameTime == TimeLimit || AllDead()) 	EndGame();
+		else 										PlayerTurn();
+	}
+
+	IEnumerator _EndGame() {
+		App.LocalInstance._VisionTracker.ClearUnits();
+		App.LocalInstance._UIManager.SetInvisible();
+		yield return new WaitForSeconds(.5f);
+
+		List<PlayableUnit> punits = new List<PlayableUnit>();
+		foreach (Unit unit in grid.GetAllUnits()) if (unit is PlayableUnit)
+			punits.Add(unit as PlayableUnit);
+		App.Instance._AudioManager.PlayOneShot(narratorRef);
+		App.Instance._AudioManager.PlayOneShot(bellRef);
+		App.Instance._AudioManager.RemoveMainTrack();
+
+		// Calculate endings
+		int ending = 1;
+		if (AllDead())					ending = 4;
+		else if (RocksGathered < 8) 	ending = 1;
+		else if (RocksGathered < 16) 	ending = 2;
+		else 							ending = 3;
+
+		App.LocalInstance._Narrator.OnEnd(punits[0],punits[1],punits[2],ending);
+
+
+		ContinueButtonPressed = false;
+		App.LocalInstance._ContinueButton.Enable("Restart");
+		while (!ContinueButtonPressed)
+			yield return null;
+		App.LocalInstance._ContinueButton.Disable();
+
+		App.LocalInstance._Log.Clear();
+
+		SceneManager.LoadScene(SceneAfterEnd, LoadSceneMode.Single);
 	}
 }

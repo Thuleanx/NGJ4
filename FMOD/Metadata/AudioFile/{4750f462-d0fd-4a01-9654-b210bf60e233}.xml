@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{4750f462-d0fd-4a01-9654-b210bf60e233}">
+		<property name="assetPath">
+			<value>SFX/Impact/qubodupImpactMeat01.flac</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ec1b0f61-fb5c-4b9e-b9b5-49ac8899c82c}</destination>
+		</relationship>
+	</object>
+</objects>

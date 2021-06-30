@@ -8,6 +8,8 @@ public class Pray : UnitAction {
 	public BubblePool effect;
 	public Pray(string name) : base(name) {}
 
+	[SerializeField, FMODUnity.EventRef] string SFX;
+
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {
 		return new List<Cell>{punit.grid.GetCell(punit.position.x, 
 			punit.position.y)};
@@ -17,6 +19,7 @@ public class Pray : UnitAction {
 		// Does nothing
 		effect?.Borrow(punit.grid.GetPosCenter(other.position), Quaternion.identity);
 
+		App.Instance._AudioManager.PlayOneShot(SFX);
 		App.LocalInstance._Narrator.OnPray(punit);
 	}
 }

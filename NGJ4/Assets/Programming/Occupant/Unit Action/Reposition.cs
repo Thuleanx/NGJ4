@@ -6,6 +6,7 @@ using Thuleanx;
 public class Reposition : UnitAction {
 	public int range = 1;
 
+
 	public Reposition(string name) : base(name) {}
 
 	public override List<Cell> GetPossibleTargets(PlayableUnit punit) {

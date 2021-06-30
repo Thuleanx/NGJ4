@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2173832591757241995, guid: 49d20cb58cfaa4e11a2f979d11f31058, type: 3}
       propertyPath: m_Name
-      value: Zealot
+      value: Zealot Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2173832591757241996, guid: 49d20cb58cfaa4e11a2f979d11f31058, type: 3}
       propertyPath: m_RootOrder
@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5a64fd927533f42158ea27a80b739759, type: 3}
+    - target: {fileID: 8437788607977367245, guid: 49d20cb58cfaa4e11a2f979d11f31058, type: 3}
+      propertyPath: attackRef
+      value: event:/SFX/Enemy/Zealot Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49d20cb58cfaa4e11a2f979d11f31058, type: 3}

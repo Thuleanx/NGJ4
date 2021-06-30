@@ -55,16 +55,16 @@ public class NarrativeGenerator : MonoBehaviour {
 		}
 	}
 	string dfs(string rule) {
-		if (ruleOverride.ContainsKey(rule))	return parse(ruleOverride[rule]);
+		if (ruleOverride.ContainsKey(rule))	return parse_internal(ruleOverride[rule]);
 		if (!ruleMap.ContainsKey(rule)) {
 			Debug.LogError("Rule " + rule + " not found within knowledge bank. Please check your spelling / syntax.");
 			// throw new System.Exception("Format error");
 			return "";
 		}
 		Rule current = ruleMap[rule];
-		return parse(current.possibleSentences[rng.Range(0, current.possibleSentences.Count-1)]);
+		return parse_internal(current.possibleSentences[rng.Range(0, current.possibleSentences.Count-1)]);
 	}	
-	public string parse(string cmd) {
+	public string parse_internal(string cmd) {
 		string res = "";
 
 		string temp = "";
@@ -90,6 +90,16 @@ public class NarrativeGenerator : MonoBehaviour {
 		return res;
 	}
 
+	public string parse(string cmd) {
+		try {
+			string res = parse_internal(cmd);
+			res = res.Replace("%", "\n");
+			return res;
+		} catch {
+			return "";
+		}
+	}
+
 	public void ClearOverrides() => ruleOverride.Clear();
 
 	public void Load(CharacterInfo info) {
@@ -108,5 +118,37 @@ public class NarrativeGenerator : MonoBehaviour {
 		ruleOverride["enemyz"] = ruleOverride["enemyc"] = ruleOverride["enemys"] = info.trait;
 		ruleOverride["enemyType"] = info.enemyType.Name();
 		ruleOverride["enemy_type"] = info.enemyType.Name();
+	}
+
+	public void Load(PlayableUnit p1, PlayableUnit p2, PlayableUnit p3) {
+		ruleOverride["charactername1"] = p1.info.fullName;
+		ruleOverride["fname1"] = p1.info.firstName;
+		ruleOverride["lname1"] = p1.info.lastName;
+		ruleOverride["spronoun1"] = p1.info.gender.SPronoun();
+		ruleOverride["opronoun1"] = p1.info.gender.OPronoun();
+		ruleOverride["ppronoun1"] = p1.info.gender.PPronoun();
+		ruleOverride["wpn1"] = p1.info.equipment;
+		ruleOverride["jobs1"] = p1.info.job;
+		ruleOverride["traits1"] = p1.info.trait;
+
+		ruleOverride["charactername2"] = p2.info.fullName;
+		ruleOverride["fname2"] = p2.info.firstName;
+		ruleOverride["lname2"] = p2.info.lastName;
+		ruleOverride["spronoun2"] = p2.info.gender.SPronoun();
+		ruleOverride["opronoun2"] = p2.info.gender.OPronoun();
+		ruleOverride["ppronoun2"] = p2.info.gender.PPronoun();
+		ruleOverride["wpn2"] = p2.info.equipment;
+		ruleOverride["jobs2"] = p2.info.job;
+		ruleOverride["traits2"] = p2.info.trait;
+
+		ruleOverride["charactername3"] = p3.info.fullName;
+		ruleOverride["fname3"] = p3.info.firstName;
+		ruleOverride["lname3"] = p3.info.lastName;
+		ruleOverride["spronoun3"] = p3.info.gender.SPronoun();
+		ruleOverride["opronoun3"] = p3.info.gender.OPronoun();
+		ruleOverride["ppronoun3"] = p3.info.gender.PPronoun();
+		ruleOverride["wpn3"] = p3.info.equipment;
+		ruleOverride["jobs3"] = p3.info.job;
+		ruleOverride["traits3"] = p3.info.trait;
 	}
 }
