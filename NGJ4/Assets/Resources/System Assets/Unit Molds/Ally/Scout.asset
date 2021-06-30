@@ -16,6 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94bb3df9334be469d9966fd48786c7ce, type: 2}
   - {fileID: 11400000, guid: fc2ecc4d30fd04814a7509d0550e7128, type: 2}
   vision_range: 6
+  max_health: 4
+  movement_range: 4
+  attack_damage: 1
+  attack_range: 1
+  effect: {fileID: 0}
   charClass: 2
+  enemyClass: 0
   CharacterSprite: {fileID: 21300000, guid: ac307a98cac9541b6be86ae372b899af, type: 3}
   AttachedPrefab: {fileID: 1530915842491010548, guid: 518503de466844bdba4586f1731535b0, type: 3}

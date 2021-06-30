@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 [System.Serializable]
 public enum BiomeType {
@@ -37,4 +39,56 @@ public static class Biome_Extensions {
 			"#mvm2",
 			"...",
 		})[(int) biomeType];
+
+	public static string MeteoriteCollect(this BiomeType biomeType) =>
+		(new string[]{
+			"#mpuf",
+			"#mpur", 
+			"#mputc",
+			"#mpuzs",
+			"#mpumz",
+			"#mpug",
+		})[(int) biomeType];
+
+	public static float MeteoriteSpawnRateInverse(this BiomeType biomeType) =>
+		(new float[]{
+			200,
+			30f, 
+			60f,
+			40f,
+			20f,
+			200f,
+		})[(int) biomeType];
+
+	public static int MeteoritePerChunk(this BiomeType biomeType) =>
+		(new int[]{
+			1,
+			1, 
+			1,
+			1,
+			2,
+			1,
+		})[(int) biomeType];
+
+	public static float SpawnRateInverse(this BiomeType biomeType) =>
+		(new float[]{
+			200f,
+			30f, 
+			60f,
+			40f,
+			20f,
+			400f,
+		})[(int) biomeType];
+
+	public static EnemyClass EnemySpawn(this BiomeType biomeType) {
+		switch (biomeType) {
+			case BiomeType.RUIN:
+			case BiomeType.SHRINE:
+				return EnemyClass.ZEALOT;
+			case BiomeType.METEORITE:
+				return EnemyClass.CORRUPTED;
+			default:
+				return EnemyClass.SCAVENGER;
+		}
+	}
 }

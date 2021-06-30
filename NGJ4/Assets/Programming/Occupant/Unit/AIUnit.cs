@@ -8,8 +8,11 @@ public class AIUnit : Unit {
 
 	public virtual Vector2Int DecideMove(Grid grid) => position;
 
+	public virtual bool DecideAction() => false;
+
 	public override void OnDeath() {
 		grid.RemoveOccupant(position);
 		gameObject.GetComponent<UnitObject>().OnDeath();
 	}
+
 }

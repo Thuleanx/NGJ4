@@ -22,9 +22,33 @@ public class Narrator : MonoBehaviour {
 		}
 	}
 
+	public void OnCollectRock(PlayableUnit punit, Cell cell) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		App.Instance._NarrativeGenerator.Load(punit.info);
+
+		AddLine(App.Instance._NarrativeGenerator.parse("> " + 
+			cell.biome.biomeType.MeteoriteCollect()));
+	}
+
+	public void OnKill(Unit person, Unit target, Cell cell) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		if (target is AIUnit) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			App.Instance._NarrativeGenerator.Load((target as AIUnit).info);
+
+			string prompt = (target as AIUnit).info.enemyType.DeathNarrative(cell.biome.biomeType);
+			AddLine(App.Instance._NarrativeGenerator.parse("> " + prompt));
+		}
+	}
+
 	void AddLine(string line) {
+		AddLine(line, Color.white);
+	}
+
+	void AddLine(string line, Color textColor) {
 		GameObject textObj = textPool.Borrow();
 		textObj.GetComponent<TMP_Text>().text = line;
+		textObj.GetComponent<TMP_Text>().color = textColor;
 
 		textObj.transform.SetParent(parchment.transform);
 

@@ -24,7 +24,7 @@ public class ShoulderBash : UnitAction {
 					(z * new Vector2Int(dx[k], dy[k]));
 				if (!punit.grid.InGrid(target)) break;
 				Cell other = punit.grid.GetCell(target.x, target.y);
-				if (other.hasOccupant && !(other.Occupant is PlayableUnit)) {
+				if (other.hasOccupant && (other.Occupant is AIUnit)) {
 					cells.Add(other);
 				} 
 			}

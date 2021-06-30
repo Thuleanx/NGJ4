@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Thuleanx;
 
 public class Unit : Occupant {
 	public Status status;
@@ -36,8 +37,10 @@ public class Unit : Occupant {
 	public void TakeDamage(Unit other, int damage_amount) {
 		if (!IsDead()) {
 			status.Health -= damage_amount;
-			if (status.Health == 0)
+			if (status.Health == 0) {
 				OnDeath();
+				App.LocalInstance._Narrator.OnKill(other, this, grid.GetCell(other.position));
+			}
 		}
 	}
 
