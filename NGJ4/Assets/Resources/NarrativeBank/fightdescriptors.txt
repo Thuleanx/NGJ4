@@ -58,3 +58,15 @@ Darting among the thrush and #eldritchadj cackle of battle, and with enemies see
 +rtu2
 "I'll get an angle on them," said #fname . #fname nodded, and the scout took off through the static grasses, blurring into the everpresent moonlight soon enough.
 "A flank will be good," said #fname . Without another word, the scout bounded up a small hill nearby. The only reason the party knew #ppronouns location was a raised, gloved hand stuck upright in a stiff wave.
+
+//character death text so "cdc" for character death card
+
++cdc
+#fname clutched #fightverb wound in their #bodypart . It was over for them, as blood seeped into the desecrated ground beneath. #coda
+Goodbye, #fname . Another spirit lost in his caldera, and one short mourned outside of it.
+#fname could not help but shed a tear when #spronoun watched the life drain from #ppronoun friend's eyes. This cursed land. And that was that, #fname 's tongue was slack, dangling from #ppronoun mouth like dead cattle.
+Perhaps it was the fate of all who came to these wastes in search of riches. #fname died with their mouth filled with dark red blood, eyes staring wide at the sky.
+#fname 's body was reduce to pulpy pile of bloody rags. What a way to go. Each of the other party wondered who would be the one to tell their family...if they had any left.
+
+
+
