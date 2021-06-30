@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Thuleanx.Optimization;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "Heal", menuName = "~/Ability/Heal", order = 0)]
 public class Heal : UnitAction {
@@ -22,5 +23,7 @@ public class Heal : UnitAction {
 		PlayableUnit pother = other.Occupant as PlayableUnit;
 		pother.status.Health++;
 		effect?.Borrow(punit.grid.GetPosCenter(other.position), Quaternion.identity);
+
+		App.LocalInstance._Narrator.OnHeal(punit, pother);
 	}
 }

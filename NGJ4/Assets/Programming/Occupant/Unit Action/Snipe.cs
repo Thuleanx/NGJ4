@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Thuleanx.Optimization;
 using Thuleanx.Math;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "Snipe", menuName = "~/Ability/Snipe", order = 0)]
 public class Snipe : UnitAction {
@@ -40,5 +41,7 @@ public class Snipe : UnitAction {
 		Unit uother = other.Occupant as Unit;
 		uother.TakeDamage(punit, damage);
 		uother.Knockback(kbDir * push_distance);
+
+		App.LocalInstance._Narrator.OnShot(punit, uother);
 	}
 }

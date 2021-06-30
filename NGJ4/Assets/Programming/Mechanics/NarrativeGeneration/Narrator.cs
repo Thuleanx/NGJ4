@@ -7,6 +7,7 @@ public class Narrator : MonoBehaviour {
 	public GameObject parchment;
 
 	[SerializeField] BubblePool textPool;
+	public float AbilityFrequency = 1/15f;
 
 	public void OnBiomeMove(PlayableUnit punit, Cell start, Cell end) {
 		App.Instance._NarrativeGenerator.ClearOverrides();
@@ -38,6 +39,46 @@ public class Narrator : MonoBehaviour {
 
 			string prompt = (target as AIUnit).info.enemyType.DeathNarrative(cell.biome.biomeType);
 			AddLine(App.Instance._NarrativeGenerator.parse("> " + prompt));
+		}
+	}
+
+	public void OnShoulderBash(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			App.Instance._NarrativeGenerator.Load((target as AIUnit).info);
+
+			AddLine(App.Instance._NarrativeGenerator.parse("> #stu1"));
+		}
+	}
+
+	public void OnReposition(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency)
+			AddLine(App.Instance._NarrativeGenerator.parse("> #stu2"));
+	}
+
+	public void OnHeal(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #htu2"));
+		}
+	}
+
+	public void OnPray(Unit person) {
+		App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+		AddLine(App.Instance._NarrativeGenerator.parse("> #htu1"));
+	}
+
+	public void OnShot(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #rtu1"));
+		}
+	}
+
+	public void OnMoveAgain(Unit person) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #rtu2"));
 		}
 	}
 

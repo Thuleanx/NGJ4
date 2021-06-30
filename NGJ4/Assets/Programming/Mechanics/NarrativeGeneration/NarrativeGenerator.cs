@@ -59,6 +59,7 @@ public class NarrativeGenerator : MonoBehaviour {
 		if (!ruleMap.ContainsKey(rule)) {
 			Debug.LogError("Rule " + rule + " not found within knowledge bank. Please check your spelling / syntax.");
 			// throw new System.Exception("Format error");
+			return "";
 		}
 		Rule current = ruleMap[rule];
 		return parse(current.possibleSentences[rng.Range(0, current.possibleSentences.Count-1)]);
@@ -106,5 +107,6 @@ public class NarrativeGenerator : MonoBehaviour {
 	public void Load(EnemyInfo info) {
 		ruleOverride["enemyz"] = ruleOverride["enemyc"] = ruleOverride["enemys"] = info.trait;
 		ruleOverride["enemyType"] = info.enemyType.Name();
+		ruleOverride["enemy_type"] = info.enemyType.Name();
 	}
 }

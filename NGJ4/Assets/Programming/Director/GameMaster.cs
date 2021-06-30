@@ -281,7 +281,11 @@ public class GameMaster : MonoBehaviour {
 			if (unit is AIUnit) {
 				if (unit.CanMove()) {
 					App.LocalInstance._Camera.FollowUnit(unit);
-					grid.MoveOccupant(unit.position, (unit as AIUnit).DecideMove(grid));
+					Vector2Int nxt = (unit as AIUnit).DecideMove(grid);
+					if (nxt != unit.position) {
+						grid.MoveOccupant(unit.position, nxt);
+						yield return new WaitForSeconds(.2f);
+					}
 					if ((unit as AIUnit).DecideAction()) {
 						yield return new WaitForSeconds(.5f);
 					}

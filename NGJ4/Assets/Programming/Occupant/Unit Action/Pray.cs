@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Thuleanx.Optimization;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "Pray", menuName = "~/Ability/Pray", order = 0)]
 public class Pray : UnitAction {
@@ -15,5 +16,7 @@ public class Pray : UnitAction {
 	public override void PerformAction(PlayableUnit punit, Cell other) {
 		// Does nothing
 		effect?.Borrow(punit.grid.GetPosCenter(other.position), Quaternion.identity);
+
+		App.LocalInstance._Narrator.OnPray(punit);
 	}
 }

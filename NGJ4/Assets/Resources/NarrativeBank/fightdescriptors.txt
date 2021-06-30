@@ -62,8 +62,8 @@ This wound is perhaps too far gone, but #fname be damned if #spronoun didn't try
 
 
 +rtu1
-#fname took quick aim at the #eldritchadj #enemy_type barrelling toward them. With #ppronoun #rwpn , #spronoun squeezed off a volley which #fightverb the #eldritchadj fiend in its #bodypart . The #enemy_type seemed stunned to be hit from so far away. #fname smirked. Let them come.
-Darting among the thrush and #eldritchadj cackle of battle, and with enemies seemingly always following, #fname readied #ppronoun #rwpn and took aim. When it was just right, the hiss of air was like a bird song. The aim was true, having #fightverb the snarling, #eldritchadj bastard #enemy_type in its #bodypart . Good, pain for them is good.
+#fname took quick aim at the #eldritchadj #enemy_type barrelling toward them. With #ppronoun #wpn , #spronoun squeezed off a volley which #fightverb the #eldritchadj fiend in its #bodypart . The #enemy_type seemed stunned to be hit from so far away. #fname smirked. Let them come.
+Darting among the thrush and #eldritchadj cackle of battle, and with enemies seemingly always following, #fname readied #ppronoun #wpn and took aim. When it was just right, the hiss of air was like a bird song. The aim was true, having #fightverb the snarling, #eldritchadj bastard #enemy_type in its #bodypart . Good, pain for them is good.
 +rtu2
 "I'll get an angle on them," said #fname . #fname nodded, and the scout took off through the static grasses, blurring into the everpresent moonlight soon enough.
 "A flank will be good," said #fname . Without another word, the scout bounded up a small hill nearby. The only reason the party knew #ppronouns location was a raised, gloved hand stuck upright in a stiff wave.

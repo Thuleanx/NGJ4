@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "Reposition", menuName = "~/Ability/Reposition", order = 0)]
 public class Reposition : UnitAction {
@@ -30,5 +31,6 @@ public class Reposition : UnitAction {
 
 	public override void PerformAction(PlayableUnit punit, Cell other) {
 		punit.grid.SwapOccupant(punit.position, other.position);
+		App.LocalInstance._Narrator.OnReposition(punit, other.Occupant as Unit);
 	}
 }
