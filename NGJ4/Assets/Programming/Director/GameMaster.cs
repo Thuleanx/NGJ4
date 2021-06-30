@@ -27,7 +27,9 @@ public class GameMaster : MonoBehaviour {
 	Dictionary<PlayableUnit, HashSet<int>> AreaVisited =
 		new Dictionary<PlayableUnit, HashSet<int>>();
 
+	[HideInInspector]
 	public int RocksGathered;
+	[HideInInspector]
 	public int GameTime;
 
 	// public BubblePool boardBase;

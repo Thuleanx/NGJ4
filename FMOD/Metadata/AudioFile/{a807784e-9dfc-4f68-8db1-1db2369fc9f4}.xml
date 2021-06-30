@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a807784e-9dfc-4f68-8db1-1db2369fc9f4}">
+		<property name="assetPath">
+			<value>storychess.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1793.3831666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ec1b0f61-fb5c-4b9e-b9b5-49ac8899c82c}</destination>
+		</relationship>
+	</object>
+</objects>

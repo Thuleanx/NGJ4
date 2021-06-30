@@ -53900,6 +53900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parchment: {fileID: 1926942885}
   textPool: {fileID: 11400000, guid: 66e90857aca9c40bf8cfdb0b86579874, type: 2}
+  AbilityFrequency: 0.06666667
 --- !u!1001 &913558256
 PrefabInstance:
   m_ObjectHideFlags: 0
