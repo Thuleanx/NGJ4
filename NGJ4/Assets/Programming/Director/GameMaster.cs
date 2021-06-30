@@ -18,12 +18,17 @@ public class GameMaster : MonoBehaviour {
 	Grid grid;
 
 	public int board_width = 8, board_height = 8;
+	public BubblePool moveIndicator, actionIndicator, rockChunk;
+	public UnitMold Soldier, Healer, Scout, 
+		Zealot, Scavenger, Corrupted;
 
-	public BubblePool moveIndicator, actionIndicator;
-	public UnitMold Soldier, Healer, Scout, Zealot;
+	public int TimeLimit = 28;
 
 	Dictionary<PlayableUnit, HashSet<int>> AreaVisited =
 		new Dictionary<PlayableUnit, HashSet<int>>();
+
+	public int RocksGathered;
+	public int GameTime;
 
 	// public BubblePool boardBase;
 	// public BubblePool boardBaseAlternative;
@@ -88,15 +93,62 @@ public class GameMaster : MonoBehaviour {
 				position,obstacle.Create(position));
 		}
 	}
+	public void PopulateRocks() {
+		mt19937 rng = new mt19937();
+		for (int x = 0; x < board_width; x++) {
+			for (int y = 0; y < board_height; y++) {
+				if (!grid.GetCell(x,y).hasOccupant &&
+					rng.Next() < 1 / grid.GetBiome(x,y).biomeType.MeteoriteSpawnRateInverse()) {
+					Rock chunk = new Rock();
+					chunk.Attach(rockChunk.Borrow(grid.GetPosCenter(new Vector2Int(x,y)), 
+						Quaternion.identity));
+					grid.AddTerrain(chunk, new Vector2Int(x,y));
+				}
+			}
+		}
+	}
+	public void SpawnEnemies() {
+		mt19937 rng = new mt19937();
+		for (int x = 0; x < board_width; x++) {
+			for (int y = 0; y < board_height; y++) {
+				Cell cell = grid.GetCell(x,y);
+				Vector2Int position = new Vector2Int(x, y);
+				if (!cell.hasOccupant && cell.Terrains.Count == 0 &&
+					rng.Next() < 1 / grid.GetBiome(x,y).biomeType.SpawnRateInverse()) {
+
+					AIUnit aunit = null;
+					switch (cell.biome.biomeType.EnemySpawn()) {
+						case EnemyClass.ZEALOT: 
+							aunit = Zealot.Create_E(position, grid.GetPosCenter(position));
+							break;
+						case EnemyClass.CORRUPTED: 
+							aunit = Corrupted.Create_E(position, grid.GetPosCenter(position));
+							break;
+						case EnemyClass.SCAVENGER: 
+							aunit = Scavenger.Create_E(position, grid.GetPosCenter(position));
+							break;
+					}
+					if (aunit != null) grid.AddOccupant(position, aunit);
+				}
+			}
+		}
+	}
 
 	IEnumerator _StartGame() {
 		mode = MODE.BEGIN;
 		yield return new WaitForEndOfFrame();
 
+		App.LocalInstance._UIManager.SetInvisible();
+
 		// construct the grid logically
 		grid = new Grid(board_width, board_height, transform.position, 1f);
+
+		RocksGathered = 0;
+		GameTime = 0;
 		LoadBiomes();
 		LoadObstacles();
+		PopulateRocks();
+		SpawnEnemies();
 
 		SpawnTestUnitAt(Vector2Int.zero, CharacterClass.Soldier);
 		SpawnTestUnitAt(new Vector2Int(3, 3), CharacterClass.Scout);
@@ -104,10 +156,11 @@ public class GameMaster : MonoBehaviour {
 
 		SpawnTestZealotAt(new Vector2Int(6, 6));
 
+		App.LocalInstance._UIManager.SetVisible();
+
 		yield return null;
 		PlayerTurn();
 	}
-
 	IEnumerator _PlayerTurn() {
 		mode = MODE.PLAYER_TURN;
 
@@ -117,6 +170,9 @@ public class GameMaster : MonoBehaviour {
 		foreach (Unit unit in grid.GetAllUnits()) total_units += (unit is PlayableUnit && unit.CanMove()) ? 1 : 0;
 
 		while (unitSelected.Count < total_units) {
+
+			App.LocalInstance._UIManager.SkipButton.SetText("Your Turn");
+
 			bool selected = false, selected_move = false, action_taken = false;
 			_selected_unit = null;
 			Vector2Int move_to = Vector2Int.zero;
@@ -145,9 +201,11 @@ public class GameMaster : MonoBehaviour {
 			}
 			foreach (var kvp in App.LocalInstance._UIManager.SidebarManager.sidebars) {
 				PlayableUnit unit = kvp.Key;
-				CharacterSidebar sbar = kvp.Value;
-				if (!unitSelected.Contains(unit as PlayableUnit))
-					sbar.Enable(() => selectUnit(unit));
+				if (unit.CanMove()) {
+					CharacterSidebar sbar = kvp.Value;
+					if (!unitSelected.Contains(unit as PlayableUnit))
+						sbar.Enable(() => selectUnit(unit));
+				}
 			}
 
 			while (!selected) yield return null;
@@ -155,7 +213,6 @@ public class GameMaster : MonoBehaviour {
 
 			int biomeCurrent = grid.CellGroup(_selected_unit.position);
 			int biomeNxt = grid.CellGroup(move_to);
-			Debug.Log(biomeCurrent + " " + biomeNxt);
 
 			if (biomeNxt != biomeCurrent && !AreaVisited[_selected_unit as PlayableUnit].Contains(biomeNxt)) {
 				App.LocalInstance._Narrator.OnBiomeMove(_selected_unit as PlayableUnit,
@@ -218,19 +275,30 @@ public class GameMaster : MonoBehaviour {
 	}
 	IEnumerator _OtherTurn() {
 		mode = MODE.OTHER_TURN;
+		App.LocalInstance._UIManager.SkipButton.SetText("Enemy Turn");
 
 		foreach (Unit unit in grid.GetAllUnits()) {
 			if (unit is AIUnit) {
-				if (unit.CanMove())
-					grid.MoveOccupant(unit.position, (unit as AIUnit).DecideMove(grid));
+				if (unit.CanMove()) {
+					App.LocalInstance._Camera.FollowUnit(unit);
+					Vector2Int nxt = (unit as AIUnit).DecideMove(grid);
+					if (nxt != unit.position) {
+						grid.MoveOccupant(unit.position, nxt);
+						yield return new WaitForSeconds(.2f);
+					}
+					if ((unit as AIUnit).DecideAction()) {
+						yield return new WaitForSeconds(.5f);
+					}
+				}
 				unit.status.UpdateStatusEffects();
 			}
 				
 		}
-
 		yield return null;
 
 		yield return new WaitForSeconds(.5f);
+		if (++GameTime == TimeLimit) {
+		}
 
 		PlayerTurn();
 	}

@@ -7,6 +7,7 @@ public class Narrator : MonoBehaviour {
 	public GameObject parchment;
 
 	[SerializeField] BubblePool textPool;
+	public float AbilityFrequency = 1/15f;
 
 	public void OnBiomeMove(PlayableUnit punit, Cell start, Cell end) {
 		App.Instance._NarrativeGenerator.ClearOverrides();
@@ -22,9 +23,73 @@ public class Narrator : MonoBehaviour {
 		}
 	}
 
+	public void OnCollectRock(PlayableUnit punit, Cell cell) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		App.Instance._NarrativeGenerator.Load(punit.info);
+
+		AddLine(App.Instance._NarrativeGenerator.parse("> " + 
+			cell.biome.biomeType.MeteoriteCollect()));
+	}
+
+	public void OnKill(Unit person, Unit target, Cell cell) {
+		App.Instance._NarrativeGenerator.ClearOverrides();
+		if (target is AIUnit) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			App.Instance._NarrativeGenerator.Load((target as AIUnit).info);
+
+			string prompt = (target as AIUnit).info.enemyType.DeathNarrative(cell.biome.biomeType);
+			AddLine(App.Instance._NarrativeGenerator.parse("> " + prompt));
+		}
+	}
+
+	public void OnShoulderBash(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			App.Instance._NarrativeGenerator.Load((target as AIUnit).info);
+
+			AddLine(App.Instance._NarrativeGenerator.parse("> #stu1"));
+		}
+	}
+
+	public void OnReposition(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency)
+			AddLine(App.Instance._NarrativeGenerator.parse("> #stu2"));
+	}
+
+	public void OnHeal(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #htu2"));
+		}
+	}
+
+	public void OnPray(Unit person) {
+		App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+		AddLine(App.Instance._NarrativeGenerator.parse("> #htu1"));
+	}
+
+	public void OnShot(Unit person, Unit target) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #rtu1"));
+		}
+	}
+
+	public void OnMoveAgain(Unit person) {
+		if (Random.Range(0, 1f) < AbilityFrequency) {
+			App.Instance._NarrativeGenerator.Load((person as PlayableUnit).info);
+			AddLine(App.Instance._NarrativeGenerator.parse("> #rtu2"));
+		}
+	}
+
 	void AddLine(string line) {
+		AddLine(line, Color.white);
+	}
+
+	void AddLine(string line, Color textColor) {
 		GameObject textObj = textPool.Borrow();
 		textObj.GetComponent<TMP_Text>().text = line;
+		textObj.GetComponent<TMP_Text>().color = textColor;
 
 		textObj.transform.SetParent(parchment.transform);
 

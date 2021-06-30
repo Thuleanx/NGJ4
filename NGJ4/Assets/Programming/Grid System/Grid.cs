@@ -29,6 +29,9 @@ public struct Grid {
 
 	public Cell GetCell(int x, int y) => arr[x,y];
 	public Cell GetCell(Vector2Int pos) => arr[pos.x, pos.y];
+	public Biome GetBiome(Vector2Int pos) => arr[pos.x, pos.y].biome;
+	public Biome GetBiome(int x, int y) => arr[x,y].biome;
+
 	public Vector2Int WorldToGridPosition(Vector2 worldPosition) => Vector2Int.FloorToInt(worldPosition);
 	public Vector2 GetPosCenter(Vector2Int boardPosition) => boardPosition * Cell2DSize + origin + Cell2DSize/2;
 
@@ -181,5 +184,15 @@ public struct Grid {
 		for (int x = 0; x < width; x++)
 			for (int y = 0; y < height; y++)
 				if (!vis[x,y]) Fill(x,y,p++,vis);
+	}
+
+	public void AddTerrain(TemporaryTerrain terrain, Vector2Int position) {
+		terrain.position = position;
+		terrain.grid = this;
+		arr[position.x, position.y].AddTemporaryTerrain(terrain);
+	}
+
+	public void RemoveTerrain(TemporaryTerrain terrain, Vector2Int position) {
+		arr[position.x, position.y].RemoveTemporaryTerrain(terrain);
 	}
 }

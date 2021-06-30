@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "MoveAgain", menuName = "~/Ability/MoveAgain", order = 0)]
 public class MoveAgain : UnitAction {
@@ -14,5 +15,6 @@ public class MoveAgain : UnitAction {
 
 	public override void PerformAction(PlayableUnit punit, Cell other) {
 		punit.grid.MoveOccupant(punit.position, other.position);
+		App.LocalInstance._Narrator.OnMoveAgain(punit);
 	}
 }

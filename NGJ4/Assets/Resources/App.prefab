@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _InputManager: {fileID: 8186443576968301719}
   _NarrativeGenerator: {fileID: 718828797}
+  _GameMaster: {fileID: -3288575203230642665}
   activePools: []
 --- !u!114 &-3288575203230642665
 MonoBehaviour:
@@ -183,10 +184,15 @@ MonoBehaviour:
   board_height: 64
   moveIndicator: {fileID: 11400000, guid: 14ef329d535834f26a88aa997a60bc75, type: 2}
   actionIndicator: {fileID: 11400000, guid: f1bfc0e00925e4dd48309ab6083d5208, type: 2}
+  rockChunk: {fileID: 11400000, guid: f7497e06adfc14701bd6439ef3b76b9d, type: 2}
   Soldier: {fileID: 11400000, guid: ef5c9f4ed69894956a84410d293ebce5, type: 2}
   Healer: {fileID: 11400000, guid: 9183a74091a7c44cea675c67031832ac, type: 2}
   Scout: {fileID: 11400000, guid: 5c1e04b171f71442993ff13c3c9a8456, type: 2}
   Zealot: {fileID: 11400000, guid: bb95e676e8ae942f985382422ee1feb0, type: 2}
+  Scavenger: {fileID: 11400000, guid: 3dfc05b8e85b64fd1b14b89bb9e0430b, type: 2}
+  Corrupted: {fileID: 11400000, guid: 2b0852d09d4c14f2483022b677645ae4, type: 2}
+  RocksGathered: 0
+  GameTime: 0
 --- !u!1 &8186443576968301721
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using UnityEngine;
 using Thuleanx.Optimization;
 using Thuleanx.Math;
 using System.Collections.Generic;
+using Thuleanx;
 
 [CreateAssetMenu(fileName = "ShoulderBash", menuName = "~/Ability/ShoulderBash", order = 0)]
 public class ShoulderBash : UnitAction {
@@ -24,7 +25,7 @@ public class ShoulderBash : UnitAction {
 					(z * new Vector2Int(dx[k], dy[k]));
 				if (!punit.grid.InGrid(target)) break;
 				Cell other = punit.grid.GetCell(target.x, target.y);
-				if (other.hasOccupant && !(other.Occupant is PlayableUnit)) {
+				if (other.hasOccupant && (other.Occupant is AIUnit)) {
 					cells.Add(other);
 				} 
 			}
@@ -42,5 +43,7 @@ public class ShoulderBash : UnitAction {
 		uother.TakeDamage(punit, damage);
 		uother.status.Apply(new StatusEffect((int) StatusEffectID.STUN, 1));
 		uother.Knockback(kbDir * push_distance);
+
+		App.LocalInstance._Narrator.OnShoulderBash(punit, uother);
 	}
 }

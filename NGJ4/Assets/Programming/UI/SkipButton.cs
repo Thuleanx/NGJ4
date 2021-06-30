@@ -26,4 +26,6 @@ public class SkipButton : MonoBehaviour {
 		text.text = buttonText;
 		button.onClick.AddListener(() => {action?.Invoke();});
 	}
+
+	public void SetText(string buttonText) => text.text = buttonText;
 }

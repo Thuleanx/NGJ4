@@ -31,4 +31,12 @@ public class Cell {
 			terrain.Enter(occupant);
 		this.occupant = occupant;
 	} 
+
+	public void AddTemporaryTerrain(TemporaryTerrain terrain) {
+		Terrains.Add(terrain);
+	}
+
+	public void RemoveTemporaryTerrain(TemporaryTerrain terrain) {
+		Terrains.Remove(terrain);
+	}
 }

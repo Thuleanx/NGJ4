@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{17a6d569-0a3e-4c0b-8a2b-78dbc5310f18}">
+		<property name="assetPath">
+			<value>corrupted_attack.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.2566439909297051</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ec1b0f61-fb5c-4b9e-b9b5-49ac8899c82c}</destination>
+		</relationship>
+	</object>
+</objects>
