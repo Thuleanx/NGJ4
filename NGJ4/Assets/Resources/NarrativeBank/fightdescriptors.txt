@@ -4,39 +4,30 @@ While frogging in a #eldritchadj stream, #fname spotted a #enemys Scavenger reli
 While frogging in a #eldritchadj stream, #fname spotted a #enemys Scavenger relieving herself in the water. Fearing the worst, #fname pounced on the Scavenger while #spronoun had the drop on her. #fname #fightverb the Scavenger's #bodypart . It was a messy kill. Blood dissipated into the burbling water.
 
 //fight descriptor ruins
-+fdrz
++fdr
 //1m
-Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #fname having #fightverb their #bodypart . The Zealot lay in a broken mess, unable to call for help.
+Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing his arms about in an incantation, was cut short by #fname having #fightverb his #bodypart . The Zealot lay in a broken mess, unable to call for help.
 //1f
 Near a clot of #eldritchadj rubble, a #enemyz Zealot, flailing her arms about in an incantation, was cut short by #fname having #fightverb her #bodypart . The Zealot lay in a broken mess, unable to call for help.
-
-+fdrs
 //2m
 Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, he hit the ground in a #eldritchadj thud. #fname approached. The Scavenger looked up fearfully at them, blood forming at his lips. #fname #fightverb her #bodypart . It was a quick shriek. A quick death.
 //2f
 Along a ruined, #eldritchadj spire, a rappelling #enemys Scavenger hacked away at a piece of meteorite stuck in the bricks. When the scavenger's rappel snapped, she hit the ground in a #eldritchadj thud. #fname approached. The Scavenger looked up fearfully at them, blood forming at her lips. #fname #fightverb her #bodypart . It was a quick shriek. A quick death.
-//4
-Stepping into a #eldritchadj and rubbled home, #fname saw an enemy #enemys Scavenger digging through a tattered pile of clothes. #fname crept up on the Scavenger, then, in a bout of insane violence, #spronoun #fightverb their #bodypart , leaving them an #eldritchadj mess. Forgotten and to be reclaimed.
-
-+fdrc
 //3
 #fname put their back to a crumpled #eldritchadj wall, having heard a cacophonous chitter of an #enemyc corrupted. Peeking around the wall, #fname saw it was a corrupted barrel, which had fused with the torso of a man. The sickening sight was almost enough for #opronoun to run, but #spronoun gathered #ppronoun courage, and leapt out and #fightverb its #bodypart . The barrel-man didn't make a sound but for the quiet whisper of death.
+//4
+Stepping into a #eldritchadj and rubbled home, #fname saw an enemy #enemys Scavenger digging through a tattered pile of clothes. #fname crept up on the Scavenger, then, in a bout of insane violence, #spronoun #fightverb their #bodypart , leaving them an #eldritchadj mess. Forgotten and to be reclaimed.
 
 //fight descriptor meteor
 +fdm
 
 The ground was covered in a #eldritchadj glow. While the #enemyc corrupted saw #fname coming, it was not enough. #fname dodged a swipe from the corrupted, then threw all their weight into an attack. #fname #fightverb the #bodypart of the corrupted with a #wpn. It chortled as it sank to a pile of ash. #coda
 
-+fgeneral
-The #enemyc #enemyType fell. #fname stood over the corpse. The green blood glimmers in #ppronoun eyes.
-
 //fight descriptor extraction
 
 +fde
 //1
 At a short distance, the pilot of an #eldritchadj airship beckoned the party frantically from his lofty cockpit seat. The party set off at a run, but #fname was pounced on by a #enemyc horror. It was a sapling with a boar's head, gnashing jaws dripping curdled dross on #opronoun . #spronoun raised a knee, flipping the #eldritchadj monstrosity off #opronoun , then #fightverb the thing's #bodypart . It squealed, but thankfully came to rest. #fname sprinted after #opronoun new family, finally home for a better life.
-
-+fdez
 //2
 Under the warbling engines of the extraction ship, #fname spotted a #eldritchadj , #enemyz Zealot sprinting directly toward #opronoun . With a sidestep, #fname #fightverb the Zealot's #bodypart . Blood sprayed from the gaping wound as the Zealot crumpled, muttering curses in a meteoric tongue.
 
@@ -62,8 +53,8 @@ This wound is perhaps too far gone, but #fname be damned if #spronoun didn't try
 
 
 +rtu1
-#fname took quick aim at the #eldritchadj #enemy_type barrelling toward them. With #ppronoun #wpn , #spronoun squeezed off a volley which #fightverb the #eldritchadj fiend in its #bodypart . The #enemy_type seemed stunned to be hit from so far away. #fname smirked. Let them come.
-Darting among the thrush and #eldritchadj cackle of battle, and with enemies seemingly always following, #fname readied #ppronoun #wpn and took aim. When it was just right, the hiss of air was like a bird song. The aim was true, having #fightverb the snarling, #eldritchadj bastard #enemy_type in its #bodypart . Good, pain for them is good.
+#fname took quick aim at the #eldritchadj #enemy_type barrelling toward them. With #ppronoun #rwpn , #spronoun squeezed off a volley which #fightverb the #eldritchadj fiend in its #bodypart . The #enemy_type seemed stunned to be hit from so far away. #fname smirked. Let them come.
+Darting among the thrush and #eldritchadj cackle of battle, and with enemies seemingly always following, #fname readied #ppronoun #rwpn and took aim. When it was just right, the hiss of air was like a bird song. The aim was true, having #fightverb the snarling, #eldritchadj bastard #enemy_type in its #bodypart . Good, pain for them is good.
 +rtu2
 "I'll get an angle on them," said #fname . #fname nodded, and the scout took off through the static grasses, blurring into the everpresent moonlight soon enough.
 "A flank will be good," said #fname . Without another word, the scout bounded up a small hill nearby. The only reason the party knew #ppronouns location was a raised, gloved hand stuck upright in a stiff wave.
@@ -75,7 +66,7 @@ Darting among the thrush and #eldritchadj cackle of battle, and with enemies see
 Goodbye, #fname . Another spirit lost in his caldera, and one short mourned outside of it.
 #fname could not help but shed a tear when #spronoun watched the life drain from #ppronoun friend's eyes. This cursed land. And that was that, #fname 's tongue was slack, dangling from #ppronoun mouth like dead cattle.
 Perhaps it was the fate of all who came to these wastes in search of riches. #fname died with their mouth filled with dark red blood, eyes staring wide at the sky.
-#fname 's body was reduce to pulpy pile of bloody rags. What a way to go. Each of the other party wondered who would be the one to tell their family...if they had any left.
+#fname 's body was reduced to pulpy pile of bloody rags. What a way to go. Each of the other party wondered who would be the one to tell their family...if they had any left.
 
 
 
