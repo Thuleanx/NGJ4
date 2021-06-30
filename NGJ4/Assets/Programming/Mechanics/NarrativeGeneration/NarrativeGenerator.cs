@@ -76,7 +76,7 @@ public class NarrativeGenerator : MonoBehaviour {
 				parsingCmd = true;
 				temp = "";
 			} else {
-				if (parsingCmd && (c == ' ' || c == '.' || c == ',')) {
+				if (parsingCmd && (c == ' ' || c == '.' || c == ',' || c == '?' || c == '!' || c == ';' || c == 39 || c == 34)) {
 					if (temp.Length > 0) res += dfs(temp);
 					parsingCmd = false;
 					res += c;
