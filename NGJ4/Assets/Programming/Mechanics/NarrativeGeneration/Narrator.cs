@@ -14,8 +14,9 @@ public class Narrator : MonoBehaviour {
 		App.Instance._NarrativeGenerator.ClearOverrides();
 		App.Instance._NarrativeGenerator.Load(p1, p2, p3);
 
-		App.LocalInstance._Log.SetText(App.Instance.
-			_NarrativeGenerator.parse("#prlg"));
+		string content = App.Instance._NarrativeGenerator.parse("#prlg");
+		App.LocalInstance._Log.SetText(content);
+		Debug.Log(content);
 	}
 
 	public void OnEnd(PlayableUnit p1, PlayableUnit p2, PlayableUnit p3, int VERSION) {

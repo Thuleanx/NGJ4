@@ -18,6 +18,7 @@ public class GameMaster : MonoBehaviour {
 	MODE mode = MODE.BEGIN;
 	Grid grid;
 
+	public int right_scene = 1;
 	public int board_width = 8, board_height = 8;
 	public BubblePool moveIndicator, actionIndicator, rockChunk;
 	public UnitMold Soldier, Healer, Scout, 
@@ -88,20 +89,26 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void LoadBiomes() {
+		int count = 0;
 		foreach (BiomeLabel biomeLabel in FindObjectsOfType<BiomeLabel>()) {
 			Vector2Int position = grid.WorldToGridPosition(
 				biomeLabel.transform.position);
 			Cell cell = grid.GetCell(position);
 			cell.biome = biomeLabel.biome;
+			count++;
 		}
+		Debug.Log(count + " biomes loaded");
 		grid.FloodFill();
 	}
 	public void LoadObstacles() {
+		int count = 0;
 		foreach (ObstacleObject obstacle in FindObjectsOfType<ObstacleObject>()) {
 			Vector2Int position = grid.WorldToGridPosition(obstacle.transform.position);
 			grid.AddOccupant(
 				position,obstacle.Create(position));
+			count++;
 		}
+		Debug.Log(count + " obstacles loaded");
 	}
 	public void PopulateRocks() {
 		mt19937 rng = new mt19937();
@@ -190,8 +197,9 @@ public class GameMaster : MonoBehaviour {
 
 	IEnumerator _StartGame() {
 		mode = MODE.BEGIN;
+		while (SceneManager.GetActiveScene().buildIndex != right_scene)
+			yield return null;
 		yield return new WaitForEndOfFrame();
-		yield return new WaitForSeconds(3);
 
 		App.LocalInstance._UIManager.SetInvisible();
 
@@ -207,9 +215,9 @@ public class GameMaster : MonoBehaviour {
 
 		PlayableUnit punit1 = null, punit2 = null, punit3 = null;
 		SpawnUnits(ref punit1, ref punit2, ref punit3);
-		Debug.Log(punit1);
-		Debug.Log(punit2);
-		Debug.Log(punit3);
+		Debug.Log(punit1.position);
+		Debug.Log(punit2.position);
+		Debug.Log(punit3.position);
 
 		// Narrator does his thing
 		App.Instance._AudioManager.PlayOneShot(narratorRef);
@@ -217,7 +225,11 @@ public class GameMaster : MonoBehaviour {
 		App.Instance._AudioManager.SetMainTrack(new FMOD_Thuleanx.AudioTrack(musicRef));
 		App.Instance._AudioManager.PlayMainTrack();
 
+		Debug.Log("Main Track Played");
+
 		ContinueButtonPressed = false;
+		Debug.Log(App.LocalInstance != null);
+		Debug.Log(App.LocalInstance._ContinueButton != null);
 		App.LocalInstance._ContinueButton.Enable("Start Game");
 		while (!ContinueButtonPressed)
 			yield return null;
